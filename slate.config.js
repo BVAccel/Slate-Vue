@@ -8,10 +8,9 @@ const { ProvidePlugin } = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 // const graphqlLoader = require('graphql-tag/loader');
 const { minLegacySingleScriptsPlugin, minLegacyMegaScriptPlugin } = require('./legacy-config');
-
+const { VueLoaderPlugin } = require('vue-loader');
 const sectionsBase = 'core';
 const snippetsBase = 'core';
-
 const externals = {
   jquery: 'jQuery',
 };
@@ -22,6 +21,7 @@ const plugins = [
     jQuery: 'jquery',
     'window.$': 'jquery',
     'window.jQuery': 'jquery',
+    Vue: 'vue/dist/vue.js'
   }),
   new CopyWebpackPlugin(
     [
@@ -38,6 +38,7 @@ const plugins = [
     ],
     { ignore: ['core/*'] },
   ),
+  new VueLoaderPlugin(),
   minLegacyMegaScriptPlugin,
   minLegacySingleScriptsPlugin,
 ];
@@ -50,9 +51,16 @@ const rules = [
   //     { loader: 'graphql-tag/loader' }
   //   ]
   // }
+  {
+    test: /\.vue$/,
+    use: [
+      { loader: 'vue-loader' }
+    ]
+  }
 ];
 
 const alias = {
+  'vue$': 'vue/dist/vue.esm.js',
   styles: path.resolve('./src/styles'),
   scripts: path.resolve('./src/scripts'),
 };
@@ -65,7 +73,7 @@ module.exports = {
   'webpack.extend': {
     externals,
     plugins,
-    resolve: { alias },
+    resolve: { alias, extensions: ['.js', '.css', '.json', '.vue'] },
     module: { rules },
     optimization: {
       runtimeChunk: 'single',
