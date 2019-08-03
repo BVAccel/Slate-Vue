@@ -4,7 +4,7 @@
     <button
         @click="onButtonClick()"
         class="primary-button"
-        v-bind:class="{ 'primary-button-active': true }" >
+        v-bind:class="{ 'primary-button-active': isActive }" >
         {{text}}
     </button>
 </template>
