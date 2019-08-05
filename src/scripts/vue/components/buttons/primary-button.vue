@@ -4,7 +4,7 @@
     <button
         @click="onButtonClick()"
         class="primary-button"
-        v-bind:class="{ 'primary-button-active': true }" >
+        v-bind:class="{ 'primary-button-active': isActive }" >
         {{text}}
     </button>
 </template>
@@ -18,7 +18,7 @@
         border: 0px;
         color: #ffffff;
         &-active{
-            background: rgb(238, 117, 117);
+            background: rgb(117, 238, 137);
         }
     }
 </style>
