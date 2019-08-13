@@ -1,14 +1,14 @@
 import ShopifyClient from 'shopify-buy';
 
-
+const ProductUrl = 'gid://shopify/Product/';
 
 export class ShopifyService{
 
     constructor(){
         // Create client
        this.shopifyClient = ShopifyClient.buildClient({
-            domain: '',
-            storefrontAccessToken: ''
+            domain: 'slate-vue.myshopify.com',
+            storefrontAccessToken: 'c9495a252e4d32fa9007acd0f6922e67'
         })
 
     }
@@ -33,7 +33,9 @@ export class ShopifyService{
 
     getProduct(productId){
         return new Promise((resolve, reject)=>{
-            this.shopifyClient.product.fetch(productId).then((product) => {
+            // must be base 64 encoded
+            let base64Id = btoa( ProductUrl + productId );
+            this.shopifyClient.product.fetch(base64Id).then((product) => {
                 console.log('Product', product);
                 resolve(product);
             });
