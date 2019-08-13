@@ -1,1 +1,4 @@
-{% comment %}blog{% endcomment %}
+<div id="app-blog">
+    {% assign blogData = blog.articles | json | escape %}
+    <blog-template v-bind:blog="{{ blogData }}"/>    
+</div>

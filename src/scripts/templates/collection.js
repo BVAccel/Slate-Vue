@@ -1,5 +1,5 @@
 import 'styles/templates/collection/index.scss';
-import CollectionTemplate from '../vue/templates/collection.vue';
+import CollectionTemplate from '../vue/templates/Collection.vue';
 
 document.addEventListener('DOMContentLoaded', () => {});
 
@@ -18,7 +18,6 @@ const initVue = () => {
         data: {
         },
         components:{
-            // Wrapper Component
             CollectionTemplate
         },
         methods: {
@@ -27,8 +26,6 @@ const initVue = () => {
     });
 }
 
-
-// Init all functions here.
 export const init = () => {
     initVue();
 };

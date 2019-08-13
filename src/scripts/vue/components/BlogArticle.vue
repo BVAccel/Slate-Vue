@@ -1,19 +1,22 @@
 <template>
     <div>
-        <h3>Article Template</h3>
-        <div class="article-test"
-            v-html="article"
-        ></div>
+        <h3
+            v-text="article.title"
+        ></h3>
+        <p
+            v-text="article.author"
+        ></p>
     </div>
 </template>
 
+
 <script>
     export default {
-        name: 'ArticleTemplate',
+        name: "BlogArticle",
         props: {
             article: {
                 type: Object,
-                required: false
+                required: true
             }
         }
     }
@@ -23,4 +26,3 @@
 <style>
 
 </style>
-

@@ -1,5 +1,5 @@
 import 'styles/templates/index/index.scss';
-import IndexTemplate from '../vue/templates/index.vue';
+import IndexTemplate from '../vue/templates/Index';
 
 document.addEventListener('DOMContentLoaded', () => {});
 

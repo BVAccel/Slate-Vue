@@ -1,53 +1,46 @@
-
-// template
 <template >
  <div>
     <div>
-        <h1>COLLECTION PAGE</h1>
+        <h1>Collection Template</h1>
+        <collection-product
+            class="collection_single_prod"
+            v-for="(product, index) in collection"
+                :key="index"
+                :product="product"
+        />
     </div>
  </div>
 </template>
 
-// SCSS
-<style lang="scss" scoped>
 
-</style>
-
-
-// JavaScript
 <script>
 
-    /***********************
-     *  COLLECTION TEMPALTE
-     ***********************/
-    import ButtonPrimary from '../components/buttons/primary-button.vue';
+    import CollectionProduct from '../components/CollectionProduct';
 
     export default {
-        // Component Bindings
-        name: 'Collection',
+        name: 'CollectionTemplate',
         props: {
-            exampleProp: String
+            exampleProp: {
+                type: String,
+                required: false
+            }
         },
-        // Component Data
-        data: function () {
-            return {
-                exampleArr:[]
+        data: function(){},
+        props: {
+            collection: {
+                type: Object
             }
         },
         components:{
-            ButtonPrimary
+            CollectionProduct
         },
-        methods: {
-             testMethod(value){
-
-            }
-        },
-        created: function () {
-           // Runs on Init
-        }
+        methods: {}
     }
 
 </script>
 
 
 
+<style lang="scss" scoped>
+
+</style>

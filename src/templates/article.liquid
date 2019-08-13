@@ -1,1 +1,5 @@
-{% comment %}article{% endcomment %}
+<div id="app-article">
+    <article-template 
+        v-bind:article="{{article | json | escape }}"
+    />
+</div>

@@ -1,5 +1,6 @@
-{% comment %}collection{% endcomment %}
-
 <div id="app-collection">
-    <collection-template></collection-template>
+    {% assign collectionProducts = collection.products || json || escape %}
+    <collection-template
+        :collection="collectionProducts"
+    />
 </div>

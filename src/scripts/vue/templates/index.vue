@@ -16,12 +16,11 @@
 
 </style>
 
-
 // JavaScript
 <script>
 
     /******************
-     *  INDEX TEMPALTE
+     * INDEX TEMPLATE *
      *****************/
     import ButtonPrimary from '../components/buttons/primary-button.vue';
 
