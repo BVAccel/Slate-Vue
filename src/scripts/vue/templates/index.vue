@@ -10,7 +10,7 @@
 
     <!-- Section Outlet-->
     <slot></slot>
-    <h2> im footer</h2>
+
  </div>
 </template>
 
