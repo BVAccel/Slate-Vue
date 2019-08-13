@@ -1,0 +1,78 @@
+<!--
+
+SECTION EXAMPLE
+
+Note: this is an example of a shopify section used in the index page. This proof of concepts displays
+the ability for us to use VUE in the section context. Below "section-title" and "value-prop-card" are
+VUE components. They are using section data avaliable in the Section object and injecting into VUE
+components.
+
+-->
+
+
+<!-- TEMPALTE  -->
+<!-- Note: injection point for section.settings -->
+<section-title
+    sectiondata='{{section.settings | json}}'>
+</section-title>
+
+<!-- Note: injection poit for section blocks
+ - section.blocks is not currently available in JSon form
+ - we currently need to use liquid forloop to break apart block settings
+-->
+<div class="justify-center">
+    {% for block in section.blocks %}
+        <value-prop-card
+            image="{{block.settings.image | img_url: "300x300", format: "pjpg"}}"
+            description="{{block.settings.description}}"
+            title="{{block.settings.title}}">
+        </value-prop-card>
+    {% endfor %}
+</div>
+
+
+<!-- SECTION SCHEMA  -->
+{% schema %}
+{
+    "name": "What We Offer 0",
+    "class": "we-offer-container",
+    "max_blocks": 3,
+    "settings": [
+        {
+        "type": "text",
+        "id": "header",
+        "label": "Header",
+        "default": "the people have spoken"
+      }
+    ],
+    "blocks": [
+        {
+            "type": "collection",
+            "name": "What We Offer 2",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "What We Offer Title"
+                },
+                {
+                    "type": "text",
+                    "id": "description",
+                    "label": "What We Offer Description"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "What We Offer 3",
+            "category": "Description"
+        }
+    ]
+}
+{% endschema %}
