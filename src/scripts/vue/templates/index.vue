@@ -2,12 +2,15 @@
 // template
 <template >
  <div>
+
     <div>
-        <h1>HOME PAGE</h1>
+        <h1>HOME PAGE TITLE</h1>
     </div>
-    <button-primary
-        text="test">
-    </button-primary>
+    <hr>
+
+    <!-- Section Outlet-->
+    <slot></slot>
+    <h2> im footer</h2>
  </div>
 </template>
 

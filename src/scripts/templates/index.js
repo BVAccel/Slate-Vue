@@ -1,5 +1,8 @@
 import 'styles/templates/index/index.scss';
 import IndexTemplate from '../vue/templates/index.vue';
+import ButtonPrimary from '../vue/components/buttons/primary-button.vue';
+import SectionTitle  from '../vue/components/titles/section-title.vue';
+import ValuePropCard from '../vue/components/cards/value-prop-card.vue'
 
 document.addEventListener('DOMContentLoaded', () => {});
 
@@ -8,6 +11,13 @@ window.addEventListener('load', () => {
 });
 
 const initVue = () => {
+
+    Vue.filter('uppercase', function (value) {
+        if (!value) return ''
+        value = value.toString().toUpperCase()
+        return value
+      })
+
     /**
      * INIT VUE APP
      */
@@ -18,7 +28,10 @@ const initVue = () => {
         },
         components:{
             // Wrapper Component
-            IndexTemplate
+            IndexTemplate,
+            ButtonPrimary,
+            SectionTitle,
+            ValuePropCard
         },
         methods: {
 
