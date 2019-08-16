@@ -3,30 +3,23 @@
 <template >
     <button
         @click="onButtonClick()"
-        class="primary-button"
-        v-bind:class="{ 'primary-button-active': isActive }" >
-        {{text}}
+        class="close-button" >
+        <i class="fas fa-window-close"></i>
     </button>
 </template>
 
 // SCSS
 <style lang="scss" scoped>
-    .primary-button{
-        background:rgb(61, 188, 247);
-        padding: 10px;
-        font-size: 16px;
+    .close-button{
         border: 0px;
-        color: #ffffff;
+        font-size: 20px;
         &:hover{
-            background:rgb(39, 178, 243);
+            color:gray;
             cursor: pointer;
         }
-        &-active{
-            background: rgb(107, 201, 123);
-        }
     }
-</style>
 
+</style>
 
 // JavaScript
 <script>
@@ -36,7 +29,7 @@
      ****************/
     export default {
         // Component Bindings
-        name: 'ButtonPrimary',
+        name: 'CloseButton',
         props: {
             text: String
         },

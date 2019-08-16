@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="canonical" href="{{ canonical_url }}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
 
     <!-- Site Meta ============================================ -->
 
@@ -23,6 +24,13 @@
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous">
       </script>
+
+    <!-- Font Awesome ========================================== -->
+    <script src="https://kit.fontawesome.com/8bf803876c.js"></script>
+
+    <!-- Cart JS  =============================================== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.2/axios.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/shopify-cartjs/0.4.1/cart.min.js"></script>
 
     <!-- Header Content ======================================= -->
 
@@ -56,11 +64,25 @@
 
     <main role="main" class="oo-main" id="MainContent">
 
-      {{ content_for_layout }}
+      <div id="app-theme">
+        <!-- Add global components here such as modals that
+        are used accross the site such as an inline cart. -->
 
+        <!--  Inline Cart Modal  -->
+        <inline-cart-modal>
+        </inline-cart-modal>
+
+      </div>
+
+      {{ content_for_layout }}
     </main>
 
     {% comment %}footer{% endcomment %}
+    <script type="text/javascript">
+      jQuery(function() {
+          CartJS.init({{ cart | json }});
+      });
+    </script>
 
   </body>
 </html>

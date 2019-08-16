@@ -13,11 +13,13 @@ html {
   -webkit-overflow-scrolling: touch; /* [3] */
   min-width: 320px;
   // background-color: $color-body-background;
+
 }
 
 body,
 html {
   height: 100%;
+  font-family: 'Roboto', sans-serif;
 }
 
 @if ($enable-box-sizing-border-box) {

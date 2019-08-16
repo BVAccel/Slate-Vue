@@ -3,26 +3,28 @@
 <template >
     <button
         @click="onButtonClick()"
-        class="primary-button"
-        v-bind:class="{ 'primary-button-active': isActive }" >
+        class="flat-button"
+        v-bind:class="{ 'flat-button-active': isActive }" >
         {{text}}
     </button>
 </template>
 
 // SCSS
 <style lang="scss" scoped>
-    .primary-button{
-        background:rgb(61, 188, 247);
-        padding: 10px;
-        font-size: 16px;
-        border: 0px;
-        color: #ffffff;
+    .flat-button{
+        border:0px;
+        font-size: 14px;
+        font-weight: 500;
+        color: rgb(61, 188, 247);
         &:hover{
-            background:rgb(39, 178, 243);
+            color:rgb(148, 211, 240);
             cursor: pointer;
         }
+        &:focus{
+            outline:0px;
+        }
         &-active{
-            background: rgb(107, 201, 123);
+            color:rgb(148, 211, 240);
         }
     }
 </style>
@@ -36,7 +38,7 @@
      ****************/
     export default {
         // Component Bindings
-        name: 'ButtonPrimary',
+        name: 'FlatButton',
         props: {
             text: String
         },
