@@ -27,12 +27,12 @@
                                 </div>
                                 <icon-button
                                     icon="fa-plus-circle"
-                                    @buttonClick="onAddOneClick(item.id)">
+                                    @buttonClick="onAddOneClick(item.variant_id)">
                                 </icon-button>
                                 <icon-button
                                     icon="fa-minus-circle"
                                     :isDelete="true"
-                                     @buttonClick="onMinusOneClick(item.variant_id,item.quantity)">
+                                     @buttonClick="onMinusOneClick(item.key,item.quantity)">
                                 </icon-button>
                             </div>
                              <div class="inline-cart-qty">
@@ -115,6 +115,8 @@
 
 </style>
 
+
+
 // JavaScript
 <script>
 
@@ -126,7 +128,6 @@
     import IconButton from '../buttons/icon-button.vue';
 
     const cartService = new CartService();
-
 
     /*******************
      * VALUE PROP CARD
@@ -152,70 +153,51 @@
         },
         methods: {
             onClearCart(){
-               CartJS.clear();
+               cartService.clearCart();
             },
             onCloseCartClick(){
                 this.isOpen = false;
             },
-            onAddOneClick(itemId){
-                let vm = this;
-                // add one more to inventory of this item
-                this.$http.post ( '/cart/add.js', {quantity:1, id: itemId} ).then(function (resp) {
-                    // success actions
-                    console.log('resp',resp.data);
-                    if(resp.data){
-                        vm.cartData = [resp.data];
-                    }
-                });
+            onAddOneClick(variant_id){
+               cartService.addItem(1,variant_id);
             },
-            onMinusOneClick(varId,currentQuantity){
+            onMinusOneClick(key,currentQuantity){
                 // subtrack one from qty
                 let newQuantity = Number(currentQuantity - 1);
-                console.log('newQuantity',newQuantity);
-                if(newQuantity < 1 ){
-                    this.onRemoveItemClick(varId);
-                }else{
-                    console.log('attempt minut',varId )
-                    cartService.changeItem(1,'29207420371018:df459809971513e5c29a30135e86c8d0')
-                    .then(function (resp,error) {
-                        console.log('success minut',resp)
-                    });
-
-                    // this.$http.post('/cart/change.js', { quantity: 1, id:'29207420371018:df459809971513e5c29a30135e86c8d0'}).then(function (resp,error) {console.log('success minut',resp)});
-                }
-            },
-            onRemoveItemClick(itemId){
-                // remove item
-                this.$http.post ( '/cart/change.js', {quantity: 0, id: itemId} ).then(function (resp) {
-                        // success actions
-                });
+                cartService.changeItem(newQuantity,key)
             }
         },
          created: function () {
-             let self = this;
-             // on init
-             this.cartData = CartJS.cart.items;
-             console.log('cartData',this.cartData);
+            // On Init
+            cartService.getCartData().then((resp)=>{
+                this.cartData = resp.data.items;
+            })
 
+            /**
+             * EVENTS
+             */
 
-            // Events
+            // Add Product
             EventBus.$on(AddProduct,(data)=>{
-                console.log('DATA',data);
                 this.cartData = [data];
             });
 
+            // Cart Update
             EventBus.$on(CartUpdated,(data)=>{
-                console.log('DATA',data);
                 this.cartData = data;
             });
 
+            // Open Modal
             EventBus.$on(OpenCartModal,()=>{
                 this.isOpen = true;
             });
 
+            // Close Modal
             EventBus.$on(CloseCartModal,()=>{
                 this.isOpen = false;
             });
+
+
         }
     }
 </script>

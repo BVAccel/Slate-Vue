@@ -46,6 +46,9 @@
      *****************/
     import ButtonPrimary from '../components/buttons/primary-button.vue';
     import { EventBus, OpenCartModal, AddProduct, CloseCartModal } from '../services/event.service';
+    import { CartService } from '../services/cart.service';
+
+    const cartService = new CartService();
 
     export default {
         // Component Bindings
@@ -74,21 +77,13 @@
             },
             onButtonClick(){
                 let self = this;
-                // CartJS.addItem(29207420371018,1, {
-                //     // Define a success callback to display a success message.
-                //     "success": self.onProductAddedToCart
-                // });
-                this.$http.post ( '/cart/add.js', {quantity: 1, id: 29207420371018} ).then(function (resp) {
-                    // success actions
-                    console.log('ajax works',resp.data);
-                    self.onProductAddedToCart(resp.data);
-                });
+                const ExampleItem = 29207420371018;
+                cartService.addItem(1,ExampleItem);
             },
             onGetCartClick(){
-                console.log('cart items', CartJS.cart.items);
-            },
-            onProductAddedToCart(data){
-                EventBus.$emit(AddProduct ,data);
+                cartService.getCartData().then((resp)=>{
+                   console.log('cart items',resp);
+                })
             }
         },
         created: function () {
