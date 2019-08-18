@@ -4,7 +4,7 @@
     <button
         @click="onButtonClick()"
         class="close-button" >
-        <i class="fas fa-window-close"></i>
+        <i class="far fa-window-close"></i>
     </button>
 </template>
 

@@ -45,7 +45,7 @@
      *  INDEX TEMPALTE
      *****************/
     import ButtonPrimary from '../components/buttons/primary-button.vue';
-    import { EventBus, OpenCartModal, AddProduct, CloseCartModal } from '../services/event.service';
+    import { EventBus, OpenCartModal, CloseCartModal } from '../services/event.service';
     import { CartService } from '../services/cart.service';
 
     const cartService = new CartService();
@@ -76,7 +76,6 @@
                 EventBus.$emit(CloseCartModal);
             },
             onButtonClick(){
-                let self = this;
                 const ExampleItem = 29207420371018;
                 cartService.addItem(1,ExampleItem);
             },

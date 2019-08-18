@@ -5,28 +5,28 @@
         @click="onButtonClick()"
         class="icon-button"
         v-bind:class="{ 'flat-button-active': isActive, 'icon-button-delete': isDelete }" >
-         <i class="fas" v-bind:class='icon'></i>
+         <i v-bind:class='icon'></i>
     </button>
 </template>
 
 // SCSS
 <style lang="scss" scoped>
     .icon-button{
-        border:0px;
-        border-radius: 20px;
-        background-color: orange;
-        color:#fff;
-        height: 25px;
+        border:1px solid rgb(189, 189, 189);
+        border-radius: 13px;
+        background-color: #ffffff;
+        color: #555759;
+        height: 26px;
         margin: 3px;
         &:hover{
             cursor: pointer;
-            background-color: rgb(245, 180, 60);
+            background-color: #e7e7e7;
         }
         &:focus{
             outline:0px;
         }
         &-active{
-            background-color: rgb(245, 180, 60);
+           background-color: #e7e7e7;
         }
         &-delete{
             background-color: rgb(233, 27, 27);

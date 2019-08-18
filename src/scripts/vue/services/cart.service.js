@@ -6,24 +6,22 @@ const AddToCart = '/cart/add.js';
 const GetCart = '/cart.js';
 const ClearCart = '/cart/clear.js'
 
+
 export class CartService{
 
-    constructor(){
-        this.name = 'CartService';
-    }
+    constructor(){}
 
 
-    /**
-     * FIELDS
+    /** CHANGE ITEM IN CART
+     * @param { item quantity } qty
+     * @param { item key } key
      */
-
-
-    // CHANGE ITEM IN CART
     changeItem(qty,key){
         return new Promise((resolve,reject)=>{
             $http.post(ChangeCart,{ quantity:qty,id:key })
             .then(function (resp) {
-                    EventBus.$emit(CartUpdated,resp.data.items);
+                console.log('resp in change item', resp);
+                    EventBus.$emit(CartUpdated,resp);
                     resolve(resp.data);
                 },function (error) {
                     reject(error);
@@ -32,29 +30,19 @@ export class CartService{
         })
     }
 
-    // CHANGE ITEM IN CART
-    clearCart(){
-        return new Promise((resolve,reject)=>{
-            $http.post(ClearCart)
-            .then(function (resp) {
-                    EventBus.$emit(CartUpdated,resp.data.items);
-                    resolve(resp.data);
-                },function (error) {
-                    reject(error);
-                }
-            );
-        })
-    }
 
-    // ADD ITEM TO CART
+    /** CHANGE ITEM IN CART
+     * @param { item quantity } qty
+     * @param { item varient ID } variant_id
+     */
     addItem(qty,variant_id){
         let vm = this;
         return new Promise((resolve,reject)=>{
             $http.post(AddToCart , { quantity:qty,id:variant_id })
             .then(function (resp) {
                     vm.getCartData().then((resp)=>{
-                        EventBus.$emit(CartUpdated,resp.data.items);
-                        resolve(resp.data.items);
+                        EventBus.$emit(CartUpdated,resp);
+                        resolve(resp.data);
                     })
                 },function (error) {
                     reject(error);
@@ -72,6 +60,21 @@ export class CartService{
                 }, function (error) {
                     reject(error);
                 });
+        })
+    }
+
+
+    /** CLEAR ALL ITEMS IN CART */
+    clearCart(){
+        return new Promise((resolve,reject)=>{
+            $http.post(ClearCart)
+            .then(function (resp) {
+                    EventBus.$emit(CartUpdated,resp.data);
+                    resolve(resp.data);
+                },function (error) {
+                    reject(error);
+                }
+            );
         })
     }
 

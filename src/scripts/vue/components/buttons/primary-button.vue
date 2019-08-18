@@ -12,8 +12,8 @@
 // SCSS
 <style lang="scss" scoped>
     .primary-button{
-        background:rgb(61, 188, 247);
-        padding: 10px;
+        background: #4c9ec3;
+        padding: 13px;
         font-size: 16px;
         border: 0px;
         color: #ffffff;
