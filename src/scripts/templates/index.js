@@ -2,7 +2,8 @@ import 'styles/templates/index/index.scss';
 import IndexTemplate from '../vue/templates/index.vue';
 import ButtonPrimary from '../vue/components/buttons/primary-button.vue';
 import SectionTitle  from '../vue/components/titles/section-title.vue';
-import ValuePropCard from '../vue/components/cards/value-prop-card.vue'
+import ValuePropCard from '../vue/components/cards/value-prop-card.vue';
+import HeroSlider  from '../vue/components/sliders/hero-slider.vue';
 
 document.addEventListener('DOMContentLoaded', () => {});
 
@@ -31,7 +32,8 @@ const initVue = () => {
             IndexTemplate,
             ButtonPrimary,
             SectionTitle,
-            ValuePropCard
+            ValuePropCard,
+            HeroSlider
         },
         methods: {
 

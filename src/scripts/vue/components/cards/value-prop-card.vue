@@ -2,41 +2,35 @@
 // template
 <template >
     <!-- VP Card  -->
+    <!-- :class="{ active: hover }" -->
     <div class="vp-card-container"
         @mouseover="hover = true"
-        @mouseleave="hover = false"
-        :class="{ active: hover }" >
+        @mouseleave="hover = false">
         <img v-bind:src="image" alt="vp image">
-        <div>{{title}}</div>
-        <div>{{description}}</div>
+        <h3 class="vp-card-title">{{title}}</h3>
+        <div class="vp-card-description" >{{description}}</div>
     </div>
 
 </template>
 
 // SCSS
 <style lang="scss" scoped>
-    .vp-card-container{
-        padding: 10px;
-        text-align: center;
-        margin: 10px;
-        -webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.12);
-        -moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.12);
-        box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.12);
-    }
-    .active{
-        background-color: rgb(197, 238, 245);
-        -webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.22);
-        -moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.22);
-        box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.22);
-        cursor: pointer;
-        /* Firefox */
-        -moz-transition: all 1s ease-in;
-        /* WebKit */
-        -webkit-transition: all 1s ease-in;
-        /* Opera */
-        -o-transition: all 1s ease-in;
-        /* Standard */
-        transition: all 1s ease-in;
+    .vp-card{
+        &-title{
+            color: #555759;
+            margin-bottom: 7px;
+        }
+        &-container{
+            padding: 10px;
+            text-align: center;
+            margin: 10px;
+            max-width: 250px;
+        }
+        &-description{
+            color: #555759;
+            line-height: 21px;
+            font-size: 14px;
+        }
     }
 </style>
 

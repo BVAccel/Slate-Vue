@@ -23,7 +23,7 @@ components.
 <div class="justify-center">
     {% for block in section.blocks %}
         <value-prop-card
-            image="{{block.settings.image | img_url: "300x300", format: "pjpg"}}"
+            image="{{block.settings.image | img_url: "100x100"}}"
             description="{{block.settings.description}}"
             title="{{block.settings.title}}">
         </value-prop-card>
@@ -34,7 +34,7 @@ components.
 <!-- SECTION SCHEMA  -->
 {% schema %}
 {
-    "name": "What We Offer 0",
+    "name": "What We Offer",
     "class": "we-offer-container",
     "max_blocks": 3,
     "settings": [

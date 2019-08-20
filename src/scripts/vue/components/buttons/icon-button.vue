@@ -3,26 +3,36 @@
 <template >
     <button
         @click="onButtonClick()"
-        class="primary-button"
-        v-bind:class="{ 'primary-button-active': isActive }" >
-        {{text}}
+        class="icon-button"
+        v-bind:class="{ 'flat-button-active': isActive }" >
+         <i v-bind:class='icon'></i>
     </button>
 </template>
 
 // SCSS
 <style lang="scss" scoped>
-    .primary-button{
-        background: #4c9ec3;
-        padding: 13px;
-        font-size: 16px;
-        border: 0px;
-        color: #ffffff;
+    .icon-button{
+        border:1px solid rgb(189, 189, 189);
+        border-radius: 13px;
+        background-color: #ffffff;
+        color: #555759;
+        height: 26px;
+        margin: 3px;
         &:hover{
-            background:rgb(39, 178, 243);
             cursor: pointer;
+            background-color: #e7e7e7;
+        }
+        &:focus{
+            outline:0px;
         }
         &-active{
-            background: rgb(107, 201, 123);
+           background-color: #e7e7e7;
+        }
+        &-delete{
+            background-color: rgb(233, 27, 27);
+            &:hover{
+                background-color:rgb(228, 111, 111);
+            }
         }
     }
 </style>
@@ -36,14 +46,14 @@
      ****************/
     export default {
         // Component Bindings
-        name: 'ButtonPrimary',
+        name: 'IconButton',
         props: {
-            text: String
+            icon: String
         },
         // Component Data
         data: function () {
             return {
-                isActive: false,
+                isActive: false
             }
         },
         methods: {
