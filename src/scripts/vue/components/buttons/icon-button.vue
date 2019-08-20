@@ -4,7 +4,7 @@
     <button
         @click="onButtonClick()"
         class="icon-button"
-        v-bind:class="{ 'flat-button-active': isActive, 'icon-button-delete': isDelete }" >
+        v-bind:class="{ 'flat-button-active': isActive }" >
          <i v-bind:class='icon'></i>
     </button>
 </template>
@@ -48,8 +48,7 @@
         // Component Bindings
         name: 'IconButton',
         props: {
-            icon: String,
-            isDelete: Boolean = false
+            icon: String
         },
         // Component Data
         data: function () {

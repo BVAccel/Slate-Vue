@@ -5,9 +5,10 @@
     <transition name="fade">
         <div class="inline-cart-wrapper" v-if="isOpen">
             <div class="flex-end">
-                <close-button
+                <icon-button
+                    icon="fas fa-times"
                     @buttonClick="onCloseCartClick()">
-                </close-button>
+                </icon-button>
             </div>
             <h3 class="inline-cart-title">REVIEW YOUR CART</h3>
             <div v-if="this.itemData.length" class="inline-cart-line-item-wrapper">
@@ -145,7 +146,7 @@
             display: flex;
             &-wrapper{
                 margin-top:40px;
-                height: calc(100vh - 275px);
+                height: calc(100vh - 278px);
             }
             &-attr{
                 padding-top:5px;

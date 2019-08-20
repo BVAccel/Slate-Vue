@@ -1,0 +1,70 @@
+<!--
+
+SECTION EXAMPLE
+
+Note: this is an example of a shopify section used in the index page. This proof of concepts displays
+the ability for us to use VUE in the section context. Below "section-title" and "value-prop-card" are
+VUE components. They are using section data avaliable in the Section object and injecting into VUE
+components.
+
+-->
+
+
+<!-- TEMPALTE  -->
+<!-- Note: injection point for section.settings -->
+{% assign headertextVar = section.settings.header %}
+{% assign subheadertextVar = section.settings.subheading %}
+{% assign imagedesktopVar = section.settings.image_desktop | img_url: '700X500' %}
+{% assign imagemobileVar = section.settings.image_mobile | img_url: '400X400' %}
+{% assign buttonTextVar = section.settings.button_text %}
+
+<hero-slider
+    headertext="{{headertextVar}}"
+    subheadertext="{{subheadertextVar}}"
+    imagedesktop="{{imagedesktopVar}}"
+    imagemobile="{{imagemobileVar}}"
+    buttontext="{{buttonTextVar}}" >
+</hero-slider>
+
+
+<!-- SECTION SCHEMA  -->
+{% schema %}
+{
+    "name": "Hero Slider",
+    "class": "hero-slider-container",
+    "settings": [
+        {
+            "type": "text",
+            "id": "header",
+            "label": "Header",
+            "default": "the people have spoken"
+        },
+        {
+            "id": "subheading",
+            "type": "text",
+            "label": "Subheading"
+        },
+        {
+            "id": "image_desktop",
+            "type": "image_picker",
+            "label": "Image - Desktop"
+        },
+        {
+            "id": "image_mobile",
+            "type": "image_picker",
+            "label": "Image - Mobile"
+        },
+        {
+            "id": "button_text",
+            "type": "text",
+            "label": "Button - Text"
+        }
+    ],
+    "presets": [
+        {
+            "category": "Standard Content",
+            "name": "Hero"
+        }
+    ]
+}
+{% endschema %}

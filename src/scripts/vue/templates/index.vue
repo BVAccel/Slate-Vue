@@ -2,32 +2,26 @@
 // template
 <template >
  <div>
-
-    <div>
-        <h1>HOME PAGE TITLE</h1>
-    </div>
-    <hr>
-    <div>Buy not button for the clif bar</div>
-    <button-primary
-        text="open cart"
-        @buttonClick="onOpenCartClick()">
-    </button-primary>
-    <button-primary
-        text="close cart"
-        @buttonClick="onCloseCartClick()">
-    </button-primary>
-    <button-primary
-        text="buy a clif"
-        @buttonClick="onButtonClick()">
-    </button-primary>
-     <button-primary
-        text="get cart"
-        @buttonClick="onGetCartClick()">
-    </button-primary>
-
-
     <!-- Section Outlet-->
     <slot></slot>
+    <div style="padding: 10px;">
+         <button-primary
+            text="OPEN CART"
+            @buttonClick="onOpenCartClick()">
+        </button-primary>
+        <button-primary
+            text="CLOSE CART"
+            @buttonClick="onCloseCartClick()">
+        </button-primary>
+        <button-primary
+            text="BUY ITEM"
+            @buttonClick="onButtonClick()">
+        </button-primary>
+        <button-primary
+            text="CART DATA"
+            @buttonClick="onGetCartClick()">
+        </button-primary>
+    </div>
 
  </div>
 </template>

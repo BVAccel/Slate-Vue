@@ -1,14 +1,24 @@
 
 // template
 <template >
-    <div class="justify-center">
+    <div class="section-title-wrapper">
         <!-- Heading with custome filter  -->
-        <h2>{{sectiondataJson.header |  uppercase}}</h2>
+        <h2 class="section-title">{{sectiondataJson.header |  uppercase}}</h2>
     </div>
 </template>
 
 // SCSS
 <style lang="scss" scoped>
+    .section-title{
+        color: #263746;
+        font-size: 36px;
+        font-weight: 200;
+        line-height: 40px;
+        &-wrapper{
+            display: flex;
+            justify-content: center;
+        }
+    }
 </style>
 
 // JavaScript

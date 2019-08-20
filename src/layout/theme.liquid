@@ -65,24 +65,18 @@
     <main role="main" class="oo-main" id="MainContent">
 
       <div id="app-theme">
-        <!-- Add global components here such as modals that
-        are used accross the site such as an inline cart. -->
-
-        <!--  Inline Cart Modal  -->
-        <inline-cart-modal>
-        </inline-cart-modal>
-
+       <theme-template>
+       </theme-template>
       </div>
 
       {{ content_for_layout }}
+
     </main>
 
-    {% comment %}footer{% endcomment %}
-    <script type="text/javascript">
-      jQuery(function() {
-          CartJS.init({{ cart | json }});
-      });
-    </script>
+    <div id="app-theme-footer">
+      <theme-template-footer>
+      </theme-template-footer>
+    </div>
 
   </body>
 </html>

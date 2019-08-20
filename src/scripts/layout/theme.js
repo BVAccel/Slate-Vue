@@ -2,7 +2,9 @@ import { focusHash, bindInPageLinks } from '@shopify/theme-a11y';
 import 'styles/theme.scss';
 import 'styles/theme.scss.liquid';
 // Vue components
-import InlineCartModal from '../vue/components/modals/inline-cart-modal.vue';
+import ThemeTemplate from '../vue/templates/theme.vue';
+import ThemeTemplateFooter from '../vue/templates/theme-footer.vue';
+
 // Common a11y fixes
 focusHash();
 bindInPageLinks();
@@ -42,12 +44,27 @@ const initVue = () => {
       },
       components:{
           // Wrapper Component
-          InlineCartModal
+          ThemeTemplate
       },
       methods: {
 
       }
   });
+
+  new Vue({
+    delimiters: ['${', '}'],
+    el: '#app-theme-footer',
+    data: {
+    },
+    components:{
+        // Wrapper Component
+        ThemeTemplateFooter
+    },
+    methods: {
+
+    }
+  });
+
 }
 
 // Init all functions here.
