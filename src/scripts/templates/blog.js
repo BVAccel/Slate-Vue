@@ -1,4 +1,4 @@
-import BlogTemplate from '../vue/templates/Blog';
+import BlogTemplate from '../vue/templates/blog.vue';
 
 
 document.addEventListener('DOMContentLoaded', () => {});
