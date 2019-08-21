@@ -1,4 +1,4 @@
-import ArticleTemplate from '../vue/templates/Article';
+import ArticleTemplate from '../vue/templates/article.vue';
 
 
 document.addEventListener('DOMContentLoaded', () => {});
