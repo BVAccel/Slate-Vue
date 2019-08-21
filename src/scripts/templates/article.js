@@ -1,5 +1,6 @@
 import ArticleTemplate from '../vue/templates/Article';
 
+
 document.addEventListener('DOMContentLoaded', () => {});
 
 window.addEventListener('load', () => {

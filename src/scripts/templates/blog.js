@@ -1,5 +1,6 @@
 import BlogTemplate from '../vue/templates/Blog';
 
+
 document.addEventListener('DOMContentLoaded', () => {});
 
 window.addEventListener('load', () => {
