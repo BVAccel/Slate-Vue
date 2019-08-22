@@ -14,10 +14,51 @@
           "child_current": {{- link.child_current | json -}},
           "levels": {{- link.levels | json -}}
           {% if link.links.size > 0 %}
+            
             {%- capture links -%}
               {%- include 'api-nav-json', list: link.links, escape: false -%}
             {%- endcapture -%}
             ,"links": {{- links -}}
+            
+
+            {% comment %}
+            ,"links": [
+              {% for sub_link in link.links %}
+                {
+                  "title": {{- sub_link.title | json -}},
+                  "handle": {{- sub_link.handle | json -}},
+                  "url": {{- sub_link.url | json -}},
+                  "type": {{- sub_link.type | json -}},
+                  "object": {{- sub_link.object | json -}},
+                  "active": {{- sub_link.active | json -}},
+                  "child_active": {{- sub_link.child_active | json -}},
+                  "current": {{- sub_link.current | json -}},
+                  "child_current": {{- sub_link.child_current | json -}},
+                  "levels": {{- sub_link.levels | json -}}
+                  {% if sub_link.links.size > 0 %}
+                    ,"links": [
+                      {% for mega_link in sub_link.links %}
+                        {
+                          "title": {{- mega_link.title | json -}},
+                          "handle": {{- mega_link.handle | json -}},
+                          "url": {{- mega_link.url | json -}},
+                          "type": {{- mega_link.type | json -}},
+                          "object": {{- mega_link.object | json -}},
+                          "active": {{- mega_link.active | json -}},
+                          "child_active": {{- mega_link.child_active | json -}},
+                          "current": {{- mega_link.current | json -}},
+                          "child_current": {{- mega_link.child_current | json -}},
+                          "levels": {{- mega_link.levels | json -}}
+                        }
+                        {%- unless forloop.last %},{%- endunless -%}
+                      {% endfor %}
+                      ]
+                  {% endif %}
+                }
+                {%- unless forloop.last %},{%- endunless -%}
+              {% endfor %}
+              ]
+              {% endcomment %}
           {% endif %}
         }
         {%- unless forloop.last %},{%- endunless -%}

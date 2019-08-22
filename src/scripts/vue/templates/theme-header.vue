@@ -6,18 +6,7 @@
     </div>
     <div class="main-nav-wrapper">
       <ul class="main-nav-list">
-        <!-- <li class="main-nav-item">
-          <a href="#">SHOP</a>
-        </li>
-        <li class="main-nav-item">
-          <a href="#">ABOUT</a>
-        </li> -->
-        <link 
-            class="main-nav-item"
-            v-for="(item, index) in items"
-                :key="index"
-                :link="item"
-        ></link>
+        <nav-link v-for="(item, index) in items" :key="index" :link="item"></nav-link>
       </ul>
 
       <div class="flex">
@@ -31,6 +20,41 @@
     </div>
   </div>
 </template>
+
+// JavaScript
+<script>
+import { EventBus, OpenCartModal } from '../services/event.service';
+
+/*******************
+ * VALUE PROP CARD
+ ******************/
+export default {
+  // Component Bindings
+  name: 'ThemeHeader',
+  props: {
+    items: {
+      type: Array,
+      required: false,
+    },
+  },
+  // Component Data
+  data: function() {
+    return {};
+  },
+  components: {
+    'nav-link': () => import('../components/navigation/NavLink.vue'),
+  },
+  methods: {
+    onOpenCartClick() {
+      EventBus.$emit(OpenCartModal);
+    },
+  },
+  created: function() {
+    // On Init
+    console.log(this.items);
+  },
+};
+</script>
 
 // SCSS
 <style lang="scss" scoped>
@@ -52,27 +76,6 @@
     border-top: 1px solid #fff;
     flex-direction: row;
     display: flex;
-  }
-  &-item {
-    display: flex;
-    align-items: center;
-    margin: 0;
-    justify-content: center;
-    flex-direction: column;
-    box-sizing: border-box;
-    padding: 0;
-    a {
-      font-size: 13px;
-      letter-spacing: 2.3px;
-      font-family: FuturaPT, sans-serif;
-      color: #263746;
-      text-decoration: none;
-      padding: 18px;
-      &:hover {
-        color: #3e5366;
-        cursor: pointer;
-      }
-    }
   }
   &-wrapper {
     display: flex;
@@ -102,45 +105,3 @@
   }
 }
 </style>
-
-// JavaScript
-<script>
-import { EventBus, OpenCartModal, CloseCartModal, CartUpdated } from '../services/event.service';
-import { JSONTemplateService } from '../services/json-template.service';
-import Link from '../components/navigation/Link.vue';
-
-const jsonTemplateService = new JSONTemplateService(); 
-
-/*******************
- * VALUE PROP CARD
- ******************/
-export default {
-  // Component Bindings
-  name: 'ThemeHeader',
-  props: {
-    items: {
-      type: Array,
-      required: false,
-    },
-  },
-  // Component Data
-  data: function() {
-    return {
-      // itemData: '',
-      // itemData: '',
-      // isOpen: false,
-    };
-  },
-  components: {
-    Link,
-  },
-  methods: {
-    onOpenCartClick() {
-      EventBus.$emit(OpenCartModal);
-    },
-  },
-  created: function() {
-    // On Init
-  },
-};
-</script>
