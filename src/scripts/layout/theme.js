@@ -4,6 +4,7 @@ import 'styles/theme.scss.liquid';
 // Vue components
 import ThemeTemplate from '../vue/templates/theme.vue';
 import ThemeTemplateFooter from '../vue/templates/theme-footer.vue';
+import ThemeHeader from '../vue/templates/theme-header.vue';
 
 // Common a11y fixes
 focusHash();
@@ -14,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {});
 window.addEventListener('load', () => {
   init();
 });
-
 
 // HMR
 if (module.hot) {
@@ -28,9 +28,6 @@ if (module.hot) {
 }
 
 const initVue = () => {
-
-
-
   Vue.prototype.$http = axios;
   Window.$http = axios;
 
@@ -38,34 +35,38 @@ const initVue = () => {
    * INIT VUE APP
    */
   new Vue({
-      delimiters: ['${', '}'],
-      el: '#app-theme',
-      data: {
-      },
-      components:{
-          // Wrapper Component
-          ThemeTemplate
-      },
-      methods: {
-
-      }
+    delimiters: ['${', '}'],
+    el: '#app-theme',
+    data: {},
+    components: {
+      // Wrapper Component
+      ThemeTemplate,
+    },
+    methods: {},
   });
 
   new Vue({
     delimiters: ['${', '}'],
     el: '#app-theme-footer',
-    data: {
+    data: {},
+    components: {
+      // Wrapper Component
+      ThemeTemplateFooter,
     },
-    components:{
-        // Wrapper Component
-        ThemeTemplateFooter
-    },
-    methods: {
-
-    }
+    methods: {},
   });
 
-}
+  new Vue({
+    delimiters: ['${', '}'],
+    el: '#app-theme-header',
+    data: {},
+    components: {
+      // Wrapper Component
+      ThemeHeader,
+    },
+    methods: {},
+  });
+};
 
 // Init all functions here.
 export const init = () => {

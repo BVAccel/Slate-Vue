@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
   <!--[if IE 9]> <html class="ie9 no-js supports-no-cookies" lang="{{ shop.locale }}"> <![endif]-->
   <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js supports-no-cookies" lang="{{ shop.locale }}"> <!--<![endif]-->
 
@@ -60,7 +60,12 @@
 
     <a href="#MainContent" class="in-page-link u-visually-hidden">Skip to content</a>
 
-    {% comment %}header{% endcomment %}
+    
+    <div id="app-theme-header">
+      <theme-header
+        :items="{%- include 'api-nav-json', list: linklists['header-menu'].links, escape: true -%}">
+      </theme-header>
+    </div>
 
     <main role="main" class="oo-main" id="MainContent">
 
