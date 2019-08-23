@@ -5,7 +5,6 @@ import 'styles/theme.scss.liquid';
 import ThemeTemplate from '../vue/templates/theme.vue';
 import ThemeTemplateFooter from '../vue/templates/theme-footer.vue';
 import ThemeHeader from '../vue/templates/theme-header.vue';
-// import Link from '../vue/components/navigation/Link.vue';
 
 // Common a11y fixes
 focusHash();
@@ -57,17 +56,17 @@ const initVue = () => {
     methods: {},
   });
 
-  new Vue({
-    delimiters: ['${', '}'],
-    el: '#app-theme-header',
-    data: {},
-    components: {
-      // Wrapper Component
-      ThemeHeader,
-      // Link,
-    },
-    methods: {},
-  });
+  // new Vue({
+  //   delimiters: ['${', '}'],
+  //   el: '#app-theme-header',
+  //   data: {},
+  //   components: {
+  //     // Wrapper Component
+  //     ThemeHeader,
+  //     // Link,
+  //   },
+  //   methods: {},
+  // });
 };
 
 // Init all functions here.

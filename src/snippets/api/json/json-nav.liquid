@@ -1,0 +1,33 @@
+{%- if list -%}
+  {%- capture json -%}
+    [
+      {%- for link in list -%}
+        {
+          "title": {{- link.title | json -}},
+          "handle": {{- link.handle | json -}},
+          "url": {{- link.url | json -}},
+          "type": {{- link.type | json -}},
+          "object": {{- link.object | json -}},
+          "active": {{- link.active | json -}},
+          "child_active": {{- link.child_active | json -}},
+          "current": {{- link.current | json -}},
+          "child_current": {{- link.child_current | json -}},
+          "levels": {{- link.levels | json -}}
+          {% if link.links.size > 0 %}
+            
+            {%- capture links -%}
+              {%- include 'json-nav', list: link.links, escape: false -%}
+            {%- endcapture -%}
+            ,"links": {{- links -}}
+          {% endif %}
+        }
+        {%- unless forloop.last %},{%- endunless -%}
+      {%- endfor -%}
+    ]
+  {%- endcapture -%}
+  {% if escape %}
+    {{- json | escape -}}
+  {% else %}
+    {{- json -}}
+  {% endif %}
+{%- endif -%}

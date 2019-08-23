@@ -1,0 +1,252 @@
+{%- assign enable_util_nav = false -%}
+{%- assign enable_search = false -%}
+{%- assign enable_account = false -%}
+{%- assign enable_wishlist = false -%}
+{%- assign enable_cart = false -%}
+{%- if section.settings['enable-search'] != blank -%}
+  {%- assign enable_search = true -%}
+  {%- assign enable_util_nav = true -%}
+{%- endif -%}
+{%- if section.settings['enable-account'] != blank -%}
+  {%- assign enable_account = true -%}
+  {%- assign enable_util_nav = true -%}
+{%- endif -%}
+{%- if section.settings['enable-wishlist'] != blank -%}
+  {%- assign enable_wishlist = true -%}
+  {%- assign enable_util_nav = true -%}
+{%- endif -%}
+{%- if section.settings['enable-cart'] != blank -%}
+  {%- assign enable_cart = true -%} 
+  {%- assign enable_util_nav = true -%}
+{%- endif -%}
+
+{%- assign section_settings_json = section.settings | json | escape -%}
+{%- capture section_blocks_json -%}
+{%- for block in section.blocks -%}
+  {%- assign fields = false -%}
+  {%- case block.type -%}
+    {%- when 'top' -%}
+      {%- assign fields = 'title, url, mobile_only, desktop_only, enable_highlight, highlight_color, enable_subnav' | split: ', ' -%}
+    {%- when 'sub' -%}
+      {%- assign fields = 'title, url, mobile_only, desktop_only, banner_title, banner_subtitle, banner_content, banner_text_color, image, enable_mobile_image, mobile_image, enable_mobile_description, mobile_description' | split: ', ' -%}
+  {%- endcase -%}
+  {
+    "type": {{- block.type | json -}},
+    "id": {{- block.id | json -}},
+    "fields": {{- fields | json -}}
+    {% comment %}{%- if fields -%},
+      {%- for field in fields -%}
+        {{- field | json -}}: {{- block.settings[field] | json | escape -}}
+        {%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    {%- endif -%}{% endcomment %}
+  }
+{%- endfor -%}
+{%- endcapture -%}
+
+{{ section_blocks_json }}
+<div id="app-theme-header">
+  <theme-header
+    :settings="{{- section_settings_json -}}"
+    :blocks="{{- section_blocks_json -}}">
+  </theme-header>
+</div>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable-search",
+      "label": "Enable Search Item"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable-account",
+      "label": "Enable Account Item"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable-wishlist",
+      "label": "Enable Wishlist Item"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable-cart",
+      "label": "Enable Cart Item"
+    },
+    {
+      "type": "header",
+      "content": "Nav Instructions"
+    },
+    {
+      "type": "paragraph",
+      "content": "To build out the mega navigation, you will need to use a combination of TOP-LEVEL links, SUB-NAV links, and BREAKS. These components can be added below where the button reads 'Add content'"
+    },
+    {
+      "type": "paragraph",
+      "content": "STEP 1: Start out with all out the TOP-LEVEL links which will appear in the desktop nav at all times. If this link needs to have a sub menu, make sure to check 'Enable Sub Nav'."
+    },
+    {
+      "type": "paragraph",
+      "content": "STEP 2: In between each of the TOP-LEVEL links, add BREAKS. This will help the code logic know where each menu ends and the next begins."
+    },
+    {
+      "type": "paragraph",
+      "content": "STEP 3: For each of the TOP-LEVEL links that needs a sub menu, begin adding SUB-NAV links directly below it. Make sure these SUB-NAV links stay above the BREAK. These SUB-NAV links will appear when the users hovers over the corresposonding TOP-LEVEL link. Arrange the SUB-NAV links within each grouping in any desired order."
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Top Level Link",
+      "type": "top",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Link Title"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link URL"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_highlight",
+          "label": "Enable highlight color"
+        },
+        {
+          "type": "color",
+          "id": "highlight_color",
+          "label": "Highlight This Link",
+          "info": "Gives this link an accent color"
+        },
+        {
+          "type": "header",
+          "content": "Link Display Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "mobile_only",
+          "label": "This link is for mobile view only",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "desktop_only",
+          "label": "This link is for desktop view only",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Sub Nav Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_subnav",
+          "label": "Enable Sub Nav"
+        }
+      ]
+    },
+    {
+      "name": "Sub Nav Link",
+      "type": "sub",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Link Title"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link URL"
+        },
+        {
+          "type": "header",
+          "content": "Link Display Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "mobile_only",
+          "label": "This link is for mobile view only",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "desktop_only",
+          "label": "This link is for desktop view only",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Link Banner Settings"
+        },
+        {
+          "type": "text",
+          "id": "banner_title",
+          "label": "Banner Title"
+        },
+        {
+          "type": "text",
+          "id": "banner_subtitle",
+          "label": "Banner Subtitle"
+        },
+        {
+          "type": "richtext",
+          "id": "banner_content",
+          "label": "Banner Content"
+        },
+        {
+          "type": "select",
+          "id": "banner_text_color",
+          "label": "Banner Text Color",
+          "options": [
+            { "value": "light", "label": "Light" },
+            { "value": "dark", "label": "Dark" }
+          ],
+          "default": "light"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_mobile_image",
+          "label": "Use Mobile Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_mobile_description",
+          "label": "Use Mobile Link Description"
+        },
+        {
+          "type": "richtext",
+          "id": "mobile_description",
+          "label": "Mobile Link Description",
+          "info": "Disabled for Sub Nav Type: 'Rings'"
+        }
+      ]
+    },
+    {
+      "name": "BREAK",
+      "type": "break",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Place this break in between nav links where the sub links end and the next top level link begins"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

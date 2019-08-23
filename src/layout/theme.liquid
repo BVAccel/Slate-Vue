@@ -60,12 +60,7 @@
 
     <a href="#MainContent" class="in-page-link u-visually-hidden">Skip to content</a>
 
-    
-    <div id="app-theme-header">
-      <theme-header
-        :items="{%- include 'api-nav-json', list: linklists['header-menu'].links, escape: true -%}">
-      </theme-header>
-    </div>
+    {%- section 'header' -%}
 
     <main role="main" class="oo-main" id="MainContent">
 
