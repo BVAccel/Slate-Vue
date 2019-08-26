@@ -18,6 +18,7 @@
         color: #555759;
         height: 26px;
         margin: 3px;
+        min-width: 26px;
         &:hover{
             cursor: pointer;
             background-color: #e7e7e7;

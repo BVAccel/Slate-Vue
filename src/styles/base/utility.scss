@@ -104,6 +104,11 @@
   display: flex;
 }
 
+.flex-wrap{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .justify-center{
   display: flex;
   justify-content: center;
