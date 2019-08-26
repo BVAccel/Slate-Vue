@@ -1,5 +1,5 @@
-export class QueryService {
-  getCollectionQuery(handleId, prevQuantity, productQuantity, variantQuantity) {
+export class CollectionQueries {
+  getCollection(handleId, prevQuantity, productQuantity, variantQuantity) {
     let query = `
       {
         collectionByHandle(handle:"${handleId}") {

@@ -13,16 +13,20 @@ const initVue = () => {
      * INIT VUE APP
      */
     new Vue({
-        delimiters: ['${', '}'],
-        el: '#app-collection',
-        data: {
-        },
-        components:{
-            CollectionTemplate
-        },
-        methods: {
-
-        }
+      template: '<CollectionTemplate :collectionHandle="collectionHandle" :collectionProductCount="collectionProductCount"/>',
+      delimiters: ['${', '}'],
+      el: '#app-collection',
+      data: {
+        collectionHandle: window.currentCollection.handle,
+        collectionProductCount: window.currentCollection.productCount,
+      },
+      components: {
+        CollectionTemplate,
+      },
+      methods: {},
+      create: function() {
+        console.log(data.collectionHandle, data.collectionProductCount);
+      },
     });
 }
 

@@ -10,31 +10,6 @@
       <button-primary text="BUY ITEM" @buttonClick="onButtonClick()"></button-primary>
       <button-primary text="CART DATA" @buttonClick="onGetCartClick()"></button-primary>
     </div>
-
-    <!-- Pagination Example -->
-    <div class="center">
-        <div class="flex-wrap">
-            <div v-for="item in items" :key="item.id" class="item-card">
-                <p><b>Name:</b> {{item.employee_name}}</p>
-                <p><b>ID:</b> {{item.id}}</p>
-                <button-primary
-                    class="item-card-button"
-                    text="EDIT">
-                </button-primary>
-            </div>
-        </div>
-    </div>
-
-    <div class="center margin-top-10">
-        <general-pagination
-            :numberOfPaginationButtons="numberOfPaginationButtons"
-            :numberOfItemsPerPage="numberOfItemsPerPage"
-            :totalNumberOfItems="dummyData.length"
-            @pagination="onPagination">
-        </general-pagination>
-    </div>
-
-
   </div>
 </template>
 
@@ -81,7 +56,7 @@
     import { EventBus, OpenCartModal, CloseCartModal } from '../services/event.service';
     import { CartService } from '../services/cart.service';
     import { ShopifyService } from '../services/shopify.service';
-    import GeneralPagination  from '../components/pagination/general-pagination.vue';
+    
 
     const cartService = new CartService();
     const shopifyService = new ShopifyService();
@@ -110,14 +85,9 @@
         },
         components:{
             ButtonPrimary,
-            IconButton,
-            GeneralPagination
+            IconButton
         },
         methods: {
-            onPagination(dataSection){
-                console.log('pagination start/end',dataSection);
-                this.setPageData(dataSection)
-            },
             onOpenCartClick(){
                 EventBus.$emit(OpenCartModal);
             },
@@ -132,27 +102,7 @@
                 cartService.getCartData().then((resp)=>{
                    console.log('cart items',resp);
                 })
-            },
-            setPageData(dataSection){
-                if(dataSection){
-                    this.items = this.dummyData.slice(dataSection.start,dataSection.end);
-                }else{
-                    // if not set. set to 20 items
-                    this.items = this.dummyData.slice(0,this.numberOfItemsPerPage);
-                }
-            },
-            initPagination(){
-                this.numberOfPaginationButtons = 5;
-                this.numberOfItemsPerPage = 20;
-                let dataSection = {'start':0,'end':20};
-                this.setPageData(dataSection);
             }
-        },
-        created: function () {
-           // Runs on Init
-           this.dummyData = shopifyService.getDummyData();
-           //this needs to come after ajax promise
-           this.initPagination();
         }
     }
 
