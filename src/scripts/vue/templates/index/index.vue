@@ -24,11 +24,7 @@
             {{item.id}}
           </p>
           <p>
-            <b>price:</b>
-            {{item.employee_salary }}
-          </p>
-          <p>
-            <b>price filtered:</b>
+            <b>Price:</b>
             {{item.employee_salary | price }}
           </p>
           <button-primary class="item-card-button" text="EDIT"></button-primary>
