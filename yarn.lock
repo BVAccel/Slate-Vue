@@ -7687,9 +7687,10 @@ graphql-tag@^2.4.2:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.10.0.tgz#87da024be863e357551b2b8700e496ee2d4353ae"
 
-graphql@^14.1.0:
-  version "14.1.0"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.1.0.tgz#f38eb11bf9b4678a9a7741de795a3d25d46a7490"
+graphql@^14.5.3:
+  version "14.5.3"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.5.3.tgz#e025851cc413e153220f4edbbb25d49f55104fa0"
+  integrity sha512-W8A8nt9BsMg0ZK2qA3DJIVU6muWhxZRYLTmc+5XGwzWzVdUdPVlAAg5hTBjiTISEnzsKL/onasu6vl3kgGTbYg==
   dependencies:
     iterall "^1.2.2"
 
@@ -15068,6 +15069,13 @@ vm-browserify@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.0.tgz#bd76d6a23323e2ca8ffa12028dc04559c75f9019"
   integrity sha512-iq+S7vZJE60yejDYM0ek6zg308+UZsdtPExWP9VZoCFCz1zkJoXFnAX7aZfd/ZwrkidzdUZL0C/ryW+JwAiIGw==
+
+vue-gql@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/vue-gql/-/vue-gql-0.2.3.tgz#a30512921c5b1cb12c0974347f0e26def27586fa"
+  integrity sha512-lIHRFy6gtkz9ulZkLWVgSAHrY+AdN5h9CGnPV0RC9LMUjMGxCWcS7M21hRE28bxBc+zffowZBtuC8cdtaNEGOg==
+  dependencies:
+    fast-json-stable-stringify "^2.0.0"
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.3"

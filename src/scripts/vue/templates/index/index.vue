@@ -5,10 +5,10 @@
     <!-- Section Outlet-->
     <slot></slot>
     <div style="padding: 10px;">
-      <button-primary text="OPEN CART" @buttonClick="onOpenCartClick()"></button-primary>
-      <button-primary text="CLOSE CART" @buttonClick="onCloseCartClick()"></button-primary>
-      <button-primary text="BUY ITEM" @buttonClick="onButtonClick()"></button-primary>
-      <button-primary text="CART DATA" @buttonClick="onGetCartClick()"></button-primary>
+      <primary-button text="OPEN CART" @buttonClick="onOpenCartClick()"></primary-button>
+      <primary-button text="CLOSE CART" @buttonClick="onCloseCartClick()"></primary-button>
+      <primary-button text="BUY ITEM" @buttonClick="onButtonClick()"></primary-button>
+      <primary-button text="CART DATA" @buttonClick="onGetCartClick()"></primary-button>
     </div>
 
     <!-- Pagination Example -->
@@ -17,10 +17,10 @@
             <div v-for="item in items" :key="item.id" class="item-card">
                 <p><b>Name:</b> {{item.employee_name}}</p>
                 <p><b>ID:</b> {{item.id}}</p>
-                <button-primary
+                <primary-button
                     class="item-card-button"
                     text="EDIT">
-                </button-primary>
+                </primary-button>
             </div>
         </div>
     </div>
@@ -76,12 +76,8 @@
     /******************
      * INDEX TEMPLATE *
      *****************/
-    import ButtonPrimary from '../../shared/components/buttons/primary-button.vue';
-    import IconButton from '../../shared/components/buttons/icon-button.vue';
-    import { EventBus, OpenCartModal, CloseCartModal } from '../../core/services/event.service';
-    import { CartService } from '../../core/services/cart.service';
-    import { ShopifyService } from '../../core/services/shopify.service';
-    import GeneralPagination  from '../../shared/components/pagination/general-pagination.vue';
+    import { PrimaryButton, IconButton, GeneralPagination } from '../../shared/components'
+    import { ShopifyService, EventBus, OpenCartModal, CloseCartModal, CartService } from '../../core/services';
 
     const cartService = new CartService();
     const shopifyService = new ShopifyService();
@@ -109,7 +105,7 @@
             }
         },
         components:{
-            ButtonPrimary,
+            PrimaryButton,
             IconButton,
             GeneralPagination
         },

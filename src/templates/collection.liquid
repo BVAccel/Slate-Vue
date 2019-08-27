@@ -1,6 +1,10 @@
+<script>
+	window.currentCollection = {
+		handle: {{ collection.handle | json }},
+		productCount: {{ collection.products_count | json }}
+  }
+</script>
+
 <div id="app-collection">
-    {% assign collectionProducts = collection.products || json || escape %}
-    <collection-template
-        :collection="collectionProducts"
-    />
+	<collection-template />
 </div>
