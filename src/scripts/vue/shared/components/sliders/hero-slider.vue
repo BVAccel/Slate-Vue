@@ -24,7 +24,8 @@
 <style lang="scss" scoped>
     .desktop-hero{
         &-wrapper{
-            padding: 60px;
+            justify-content: flex-end;
+            padding: 200px;
             height:600px;
             width: 100%;
             background: no-repeat center center fixed;
@@ -36,13 +37,13 @@
             align-items: center;
         }
         &-header{
-            color:#c6e1ff;
+            color:#666666;
             font-weight: 200;
             font-size: 40px;
             margin-top:0px
         }
         &-sub-header{
-            color:#c6e1ff;
+            color:#666666;
             font-weight: 200;
             font-size: 16px;
         }

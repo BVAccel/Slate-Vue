@@ -28,8 +28,8 @@
     /********************
      *  PRODUCT TEMPALTE
      *******************/
-    import ButtonPrimary from '../components/buttons/primary-button.vue';
-    import { ShopifyService } from '../services/shopify.service';
+    import ButtonPrimary from '../../shared/components/buttons/primary-button.vue';
+    import { ShopifyService } from '../../core/services/shopify.service';
 
     /**
      * SERVICES

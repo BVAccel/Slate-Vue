@@ -38,6 +38,7 @@
     "@shopify/theme-rte": "^1.0.0-alpha.7",
     "@shopify/theme-sections": "^1.1.0",
     "@shopify/theme-variants": "^1.0.0-alpha.8",
+    "@storybook/vue": "^5.1.11",
     "apollo-boost": "^0.1.23",
     "apollo-cache-inmemory": "^1.4.2",
     "apollo-link": "^1.2.6",
@@ -82,6 +83,7 @@
     "deploy": "slate-tools build && slate-tools deploy",
     "zip": "slate-tools build && slate-tools zip",
     "lint": "slate-tools lint",
-    "format": "slate-tools format"
+    "format": "slate-tools format",
+    "storybook": "start-storybook -p 6006 -s public"
   }
 }

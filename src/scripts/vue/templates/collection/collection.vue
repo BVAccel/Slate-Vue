@@ -1,3 +1,4 @@
+// template
 <template >
  <div>
     <div>
@@ -12,20 +13,31 @@
  </div>
 </template>
 
+// SCSS
+<style lang="scss" scoped>
 
+</style>
+
+// JavaScript
 <script>
 
-    import CollectionProduct from '../components/CollectionProduct';
+    /************************
+     * COLLECTION TEMPLATE *
+     ***********************/
+    const ComponentName = 'CollectionTemplate';
+    import CollectionProduct from './components/collection-product.vue';
 
     export default {
-        name: 'CollectionTemplate',
+        name: ComponentName,
         props: {
             exampleProp: {
                 type: String,
                 required: false
             }
         },
-        data: function(){},
+        data: function(){
+
+        },
         props: {
             collection: {
                 type: Object
@@ -41,6 +53,3 @@
 
 
 
-<style lang="scss" scoped>
-
-</style>

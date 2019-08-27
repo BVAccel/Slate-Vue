@@ -1,5 +1,4 @@
-import ArticleTemplate from '../vue/templates/article.vue';
-
+import ArticleTemplate from '../vue/templates/article/article.vue';
 
 document.addEventListener('DOMContentLoaded', () => {});
 
@@ -12,7 +11,9 @@ const initVue = () => {
         delimiters: ['${', '}'],
         el: '#app-article',
         data: {},
-        components:{ArticleTemplate},
+        components:{
+            ArticleTemplate
+        },
         methods: {}
     });
 }

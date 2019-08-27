@@ -1,5 +1,5 @@
 import 'styles/templates/collection/index.scss';
-import CollectionTemplate from '../vue/templates/collection.vue';
+import CollectionTemplate from '../vue/templates/collection/collection.vue';
 
 document.addEventListener('DOMContentLoaded', () => {});
 

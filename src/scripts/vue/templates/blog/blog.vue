@@ -1,7 +1,8 @@
+// template
 <template>
     <div>
         <h3>Blog Template</h3>
-        <blog-article 
+        <blog-article
             class="blog-test"
             v-for="(article, index) in blog"
                 :key="index"
@@ -10,12 +11,24 @@
     </div>
 </template>
 
-<script>
+// SCSS
+<style lang="scss" scoped>
 
-    import BlogArticle from './../components/BlogArticle';
+</style>
+
+// JavaScript
+<script>
+    /******************
+     * BLOG TEMPLATE *
+     *****************/
+    // Consts
+    const ComponentName = 'BlogTemplate';
+
+    // Imports
+    import BlogArticle from './components/blog-article.vue';
 
     export default {
-        name: 'BlogTemplate',
+        name: ComponentName,
         props: {
             blog: {
                 type: Array,
@@ -30,7 +43,5 @@
 </script>
 
 
-<style>
 
-</style>
 

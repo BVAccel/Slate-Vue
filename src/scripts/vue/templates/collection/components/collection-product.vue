@@ -1,3 +1,4 @@
+// template
 <template>
     <div>
         <h3
@@ -9,20 +10,23 @@
     </div>
 </template>
 
+// SCSS
+<style lang="scss" scoped>
 
+</style>
+
+// JavaScript
 <script>
     export default {
         name: "CollectionProduct",
         props: {
             product: {
-                type: Object, 
+                type: Object,
                 required: true
             }
-        }   
+        }
     }
 </script>
 
 
-<style>
 
-</style>

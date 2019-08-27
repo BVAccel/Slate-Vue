@@ -1,5 +1,5 @@
 // import 'styles/templates/index/index.scss';
-import PageTemplate from '../vue/templates/Page';
+import PageTemplate from '../vue/templates/page/page.vue';
 
 document.addEventListener('DOMContentLoaded', () => {});
 

@@ -1,4 +1,4 @@
-import AppErr from '../vue/templates/404';
+import PageNotFoundTemplate from '../vue/templates/404/404.vue';
 
 document.addEventListener('DOMContentLoaded', () => {});
 
@@ -11,7 +11,9 @@ const initVue = () => {
         delimiters: ['${', '}'],
         el: '#app-404',
         data: {},
-        components:{AppErr},
+        components:{
+            PageNotFoundTemplate
+        },
         methods: {}
     });
 }

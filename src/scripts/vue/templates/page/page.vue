@@ -1,3 +1,4 @@
+// template
 <template >
  <div>
     <div>
@@ -6,14 +7,24 @@
  </div>
 </template>
 
+// SCSS
+<style lang="scss" scoped>
 
+</style>
+
+// JavaScript
 <script>
+
+    /******************
+     * INDEX TEMPLATE *
+     *****************/
+    const ComponentName = 'PageTemplate';
+
+
     export default {
-        name: 'PageTemplate',
+        name: ComponentName,
         data: function () {},
-        props: {
-            // content
-        },
+        props: {},
         components:{},
         methods: {
         },
@@ -22,7 +33,5 @@
 
 </script>
 
-<style lang="scss" scoped>
 
-</style>
 

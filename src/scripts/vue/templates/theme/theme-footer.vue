@@ -77,20 +77,14 @@
 // JavaScript
 <script>
 
-    /******************
-     *  INDEX TEMPALTE
-     *****************/
-    import ButtonPrimary from '../components/buttons/primary-button.vue';
-    import InlineCartModal from '../components/modals/inline-cart-modal.vue';
-    import MainNav from '../components/nagivation/main-nav.vue';
-    import { EventBus, OpenCartModal, CloseCartModal } from '../services/event.service';
-    import { CartService } from '../services/cart.service';
-
-    const cartService = new CartService();
+    /**************************
+     *  THEME FOOTER TEMPLATE
+     *************************/
+    const ComponentName = 'ThemeFooter';
 
     export default {
         // Component Bindings
-        name: 'ThemeFooter',
+        name: ComponentName,
         props: {
             exampleProp: String
         },
@@ -101,9 +95,7 @@
             }
         },
         components:{
-            ButtonPrimary,
-            InlineCartModal,
-            MainNav
+
         },
         methods: {
             testMethod(value){

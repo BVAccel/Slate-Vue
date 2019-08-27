@@ -87,6 +87,7 @@
         }
         &-image{
             height:100px;
+            margin:10px;
         }
         &-title{
             font-size: 16px;
@@ -175,8 +176,8 @@
 // JavaScript
 <script>
 
-    import { EventBus, OpenCartModal, CloseCartModal, CartUpdated } from '../../services/event.service';
-    import { CartService } from '../../services/cart.service';
+    import { EventBus, OpenCartModal, CloseCartModal, CartUpdated } from '../../../core/services/event.service';
+    import { CartService } from '../../../core/services/cart.service';
     import CloseButton from '../buttons/close-button.vue';
     import ButtonPrimary from '../buttons/primary-button.vue';
     import FlatButton from '../buttons/flat-button.vue';

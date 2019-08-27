@@ -1,3 +1,4 @@
+// template
 <template>
     <div>
         <h3
@@ -9,10 +10,21 @@
     </div>
 </template>
 
+// SCSS
+<style lang="scss" scoped>
 
+</style>
+
+// JavaScript
 <script>
+    /******************
+     *  BLOG ARTICLE  *
+     *****************/
+
+    const ComponentName = 'BlogArticle';
+
     export default {
-        name: "BlogArticle",
+        name: ComponentName,
         props: {
             article: {
                 type: Object,
@@ -20,9 +32,7 @@
             }
         }
     }
+
 </script>
 
 
-<style>
-
-</style>

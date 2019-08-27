@@ -2,8 +2,8 @@ import { focusHash, bindInPageLinks } from '@shopify/theme-a11y';
 import 'styles/theme.scss';
 import 'styles/theme.scss.liquid';
 // Vue components
-import ThemeTemplate from '../vue/templates/theme.vue';
-import ThemeTemplateFooter from '../vue/templates/theme-footer.vue';
+import ThemeTemplate from '../vue/templates/theme/theme.vue';
+import ThemeTemplateFooter from '../vue/templates/theme/theme-footer.vue';
 
 // Common a11y fixes
 focusHash();

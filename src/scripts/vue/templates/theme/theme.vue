@@ -26,11 +26,11 @@
     /******************
      *  INDEX TEMPALTE
      *****************/
-    import ButtonPrimary from '../components/buttons/primary-button.vue';
-    import InlineCartModal from '../components/modals/inline-cart-modal.vue';
-    import MainNav from '../components/nagivation/main-nav.vue';
-    import { EventBus, OpenCartModal, CloseCartModal } from '../services/event.service';
-    import { CartService } from '../services/cart.service';
+    import ButtonPrimary from '../../shared/components/buttons/primary-button.vue';
+    import InlineCartModal from '../../shared/components/modals/inline-cart-modal.vue';
+    import MainNav from '../../shared/components/nagivation/main-nav.vue';
+    import { EventBus, OpenCartModal, CloseCartModal } from '../../core/services/event.service';
+    import { CartService } from '../../core/services/cart.service';
 
     const cartService = new CartService();
 

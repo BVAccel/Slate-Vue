@@ -1,6 +1,6 @@
 import 'styles/templates/index/index.scss';
-import ProductTemplate from '../vue/templates/product.vue';
-import ButtonPrimary from '../vue/components/buttons/primary-button.vue';
+import ProductTemplate from '../vue/templates/product/product.vue';
+import ButtonPrimary from '../vue/shared/components/buttons/primary-button.vue';
 
 document.addEventListener('DOMContentLoaded', () => {});
 

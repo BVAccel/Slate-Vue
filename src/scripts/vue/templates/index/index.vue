@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <div class="center margin-top-10">
+    <div class="center">
         <general-pagination
             :numberOfPaginationButtons="numberOfPaginationButtons"
             :numberOfItemsPerPage="numberOfItemsPerPage"
@@ -76,12 +76,12 @@
     /******************
      * INDEX TEMPLATE *
      *****************/
-    import ButtonPrimary from '../components/buttons/primary-button.vue';
-    import IconButton from '../components/buttons/icon-button.vue';
-    import { EventBus, OpenCartModal, CloseCartModal } from '../services/event.service';
-    import { CartService } from '../services/cart.service';
-    import { ShopifyService } from '../services/shopify.service';
-    import GeneralPagination  from '../components/pagination/general-pagination.vue';
+    import ButtonPrimary from '../../shared/components/buttons/primary-button.vue';
+    import IconButton from '../../shared/components/buttons/icon-button.vue';
+    import { EventBus, OpenCartModal, CloseCartModal } from '../../core/services/event.service';
+    import { CartService } from '../../core/services/cart.service';
+    import { ShopifyService } from '../../core/services/shopify.service';
+    import GeneralPagination  from '../../shared/components/pagination/general-pagination.vue';
 
     const cartService = new CartService();
     const shopifyService = new ShopifyService();
@@ -125,7 +125,7 @@
                 EventBus.$emit(CloseCartModal);
             },
             onButtonClick(){
-                const ExampleItem = 29207420371018;
+                const ExampleItem = 29343910395978;
                 cartService.addItem(1,ExampleItem);
             },
             onGetCartClick(){
