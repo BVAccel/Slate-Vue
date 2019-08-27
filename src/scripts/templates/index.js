@@ -4,6 +4,8 @@ import ButtonPrimary from '../vue/shared/components/buttons/primary-button.vue';
 import SectionTitle  from '../vue/shared/components/titles/section-title.vue';
 import ValuePropCard from '../vue/shared/components/cards/value-prop-card.vue';
 import HeroSlider  from '../vue/shared/components/sliders/hero-slider.vue';
+import priceFilter from '../vue/shared/filters/price'
+
 
 document.addEventListener('DOMContentLoaded', () => {});
 
@@ -18,6 +20,8 @@ const initVue = () => {
         value = value.toString().toUpperCase()
         return value
       })
+
+  Vue.filter('price', priceFilter);
 
     /**
      * INIT VUE APP

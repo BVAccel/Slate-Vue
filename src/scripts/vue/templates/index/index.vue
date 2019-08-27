@@ -17,6 +17,8 @@
             <div v-for="item in items" :key="item.id" class="item-card">
                 <p><b>Name:</b> {{item.employee_name}}</p>
                 <p><b>ID:</b> {{item.id}}</p>
+                <p><b>price:</b> {{item.employee_salary }}</p>
+                <p><b>price filtered:</b> {{item.employee_salary | price }}</p>
                 <button-primary
                     class="item-card-button"
                     text="EDIT">
@@ -86,7 +88,6 @@
     const cartService = new CartService();
     const shopifyService = new ShopifyService();
     const ComponentName = 'Index';
-
 
     export default {
         // Component Bindings
