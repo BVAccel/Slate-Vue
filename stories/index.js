@@ -8,6 +8,6 @@ storiesOf('Button', module)
             template: '<button-primary text="BVA Primary Button"></button-primary>'
         }),
         {
-            notes: "popover tooltip"
+            notes: "This is some notes about the primary button"
         }
     );
