@@ -36,7 +36,7 @@
      ****************/
     export default {
         // Component Bindings
-        name: 'ButtonPrimary',
+        name: 'PrimaryButton',
         props: {
             text: String
         },

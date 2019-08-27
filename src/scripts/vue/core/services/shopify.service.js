@@ -53,6 +53,7 @@ export class ShopifyService{
         })
     }
 
+    
     getCollectionWithProducts(collectionId){
         console.log("getCollectionWithProducts");
         return new Promise((resolve, reject)=>{

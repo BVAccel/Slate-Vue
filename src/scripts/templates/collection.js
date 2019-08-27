@@ -1,31 +1,31 @@
 import 'styles/templates/collection/index.scss';
-import CollectionTemplate from '../vue/templates/collection/collection.vue';
+import Collection from '../vue/templates/collection/collection.vue';
 
 document.addEventListener('DOMContentLoaded', () => {});
 
 window.addEventListener('load', () => {
-    init();
+  init();
 });
 
-
 const initVue = () => {
-    /**
-     * INIT VUE APP
-     */
-    new Vue({
-        delimiters: ['${', '}'],
-        el: '#app-collection',
-        data: {
-        },
-        components:{
-            CollectionTemplate
-        },
-        methods: {
-
-        }
-    });
-}
+  /**
+   * INIT VUE APP
+   */
+  new Vue({
+    template: '<Collection :collectionHandle="collectionHandle" :collectionProductCount="collectionProductCount"/>',
+    delimiters: ['${', '}'],
+    el: '#app-collection',
+    data: {
+      collectionHandle: window.currentCollection.handle,
+      collectionProductCount: window.currentCollection.productCount,
+    },
+    components: {
+      Collection,
+    },
+    methods: {}
+  });
+};
 
 export const init = () => {
-    initVue();
+  initVue();
 };
