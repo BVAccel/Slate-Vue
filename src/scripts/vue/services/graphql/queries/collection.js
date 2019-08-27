@@ -1,14 +1,21 @@
+//**********************//
+//* COLLECTION QUERIES *//
+//**********************//
+
 export class CollectionQueries {
-  getCollection(handleId, prevQuantity, productQuantity, variantQuantity) {
+
+  // COLLECTION QUERY - Basic query to get a collection. You must provide each of the arguments for it to work.
+  getCollection(handle, totalFetched, amountToFetch, variantQuantity) {
     let query = `
       {
-        collectionByHandle(handle:"${handleId}") {
+        collectionByHandle(handle:"${handle}") {
+          title
           id
-          products(first:${productQuantity} offset:${prevQuantity}) {
+          products(first:${amountToFetch} offset:${totalFetched}) {
             edges {
               node {
+                title
                 id
-
                 images(first:2)  {
                   edges {
                     node {
@@ -36,6 +43,32 @@ export class CollectionQueries {
           }
         }
       }
-    `
+    `;
   }
+
+  // SORT QUERIES - Use these to sort your collections.
+  sortByPriceAsc() {
+    let query = `{}`
+  }
+
+  sortByPriceDesc() {
+    let query = `{}`
+  }
+
+  sortByNew() {
+    let query = `{}`
+  }
+
+  sortByOld() {
+    let query = `{}`
+  }
+
+  sortByFeatured() {
+    let query = `{}`
+  }
+
+  sortByBestSellers() {
+    let query = `{}`
+  }
+
 }
