@@ -73,7 +73,7 @@ module.exports = {
   'webpack.extend': {
     externals,
     plugins,
-    resolve: { alias, extensions: ['.js', '.css', '.json', '.vue'] },
+    resolve: { alias, extensions: ['.mjs', '.js', '.css', '.json', '.vue',] },
     module: { rules },
     optimization: {
       runtimeChunk: 'single',
