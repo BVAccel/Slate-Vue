@@ -3,7 +3,7 @@ import { configure } from '@storybook/vue';
 import Vue from 'vue';
 
 // Import your global components.
-import ButtonPrimary from '../src/scripts/vue/components/buttons/primary-button.vue';
+import ButtonPrimary from '../src/scripts/vue/shared/components/buttons/primary-button.vue';
 
 
 // Register global components.

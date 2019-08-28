@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import { storiesOf } from '@storybook/vue';
-import ButtonPrimary from '../src/scripts/vue/components/buttons/primary-button.vue';
+import ButtonPrimary from '../src/scripts/vue/shared/components/buttons/primary-button.vue';
 
 storiesOf('Button', module)
   .add('as a component', () => ({
