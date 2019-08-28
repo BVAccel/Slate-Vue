@@ -38,13 +38,12 @@
         // Component Bindings
         name: 'PrimaryButton',
         props: {
-            text: String
+            text: String,
+            isActive:Boolean
         },
         // Component Data
         data: function () {
-            return {
-                isActive: false,
-            }
+            return {}
         },
         methods: {
              onButtonClick(value) {

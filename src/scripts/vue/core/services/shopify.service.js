@@ -53,9 +53,9 @@ export class ShopifyService{
         })
     }
 
-    
+
     getCollectionWithProducts(collectionId){
-        console.log("getCollectionWithProducts");
+        console.log("getCollectionWithProducts with ID: ", collectionId);
         return new Promise((resolve, reject)=>{
             this.shopifyClient.collection.fetchWithProducts(collectionId).then((collection) => {
                 // Do something with the collection

@@ -149,6 +149,15 @@
            this.dummyData = shopifyService.getDummyData();
            //this needs to come after ajax promise
            this.initPagination();
+
+
+        //     shopifyService.getAllCollectionWithProducts().then((resp)=>{
+        //        console.log('getAllCollectionWithProducts',resp);
+        //    })
+
+           shopifyService.getCollectionWithProducts("Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzEzODQ4MjQxNzczOA==").then((resp)=>{
+               console.log('getCollectionWithProducts',resp);
+           })
         }
     }
 

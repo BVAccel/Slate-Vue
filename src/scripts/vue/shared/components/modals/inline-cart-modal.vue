@@ -148,6 +148,7 @@
             &-wrapper{
                 margin-top:40px;
                 height: calc(100vh - 278px);
+                overflow-y: scroll;
             }
             &-attr{
                 padding-top:5px;
