@@ -26,7 +26,7 @@
     /******************
      *  INDEX TEMPALTE
      *****************/
-    import ButtonPrimary from '../../shared/components/buttons/primary-button.vue';
+    import PrimaryButton from '../../shared/components/buttons/primary-button.vue';
     import InlineCartModal from '../../shared/components/modals/inline-cart-modal.vue';
     import MainNav from '../../shared/components/nagivation/main-nav.vue';
     import { EventBus, OpenCartModal, CloseCartModal } from '../../core/services/event.service';
@@ -47,7 +47,7 @@
             }
         },
         components:{
-            ButtonPrimary,
+            PrimaryButton,
             InlineCartModal,
             MainNav
         },

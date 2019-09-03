@@ -114,7 +114,7 @@
     import { EventBus, OpenCartModal, CloseCartModal, CartUpdated } from '../../../core/services/event.service';
     import { CartService } from '../../../core/services/cart.service';
     import CloseButton from '../buttons/close-button.vue';
-    import ButtonPrimary from '../buttons/primary-button.vue';
+    import PrimaryButton from '../buttons/primary-button.vue';
     import FlatButton from '../buttons/flat-button.vue';
     import IconButton from '../buttons/icon-button.vue';
 
@@ -139,7 +139,7 @@
         },
         components:{
             CloseButton,
-            ButtonPrimary,
+            PrimaryButton,
             FlatButton,
             IconButton
         },

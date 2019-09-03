@@ -10,10 +10,10 @@
                 <h3 class="desktop-hero-sub-header">
                     {{subheadertext}}
                 </h3>
-                <button-primary
+                <primary-button
                     class="desktop-hero-cta"
                     :text="buttontext">
-                </button-primary>
+                </primary-button>
             </div>
         </div>
     </div>
@@ -57,7 +57,7 @@
 // JavaScript
 <script>
     import CloseButton from '../buttons/close-button.vue';
-    import ButtonPrimary from '../buttons/primary-button.vue';
+    import PrimaryButton from '../buttons/primary-button.vue';
     import FlatButton from '../buttons/flat-button.vue';
     import IconButton from '../buttons/icon-button.vue';
 
@@ -83,7 +83,7 @@
         },
         components:{
             CloseButton,
-            ButtonPrimary,
+            PrimaryButton,
             FlatButton,
             IconButton
         },

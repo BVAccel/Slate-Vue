@@ -2,6 +2,7 @@ import ShopifyClient from 'shopify-buy';
 const $http = require('axios');
 
 const ProductUrl = 'gid://shopify/Product/';
+const CollectionUrl = 'gid://shopify/Collection/';
 
 export class ShopifyService{
 

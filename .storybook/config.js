@@ -3,11 +3,11 @@ import { configure } from '@storybook/vue';
 import Vue from 'vue';
 
 // Import your global components.
-import ButtonPrimary from '../src/scripts/vue/shared/components/buttons/primary-button.vue';
+import PrimaryButton from '../src/scripts/vue/shared/components/buttons/primary-button.vue';
 
 
 // Register global components.
-Vue.component('button-primary', ButtonPrimary);
+Vue.component('primary-button', PrimaryButton);
 
 function loadStories() {
   // You can require as many stories as you need.

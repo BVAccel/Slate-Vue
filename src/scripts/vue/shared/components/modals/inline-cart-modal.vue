@@ -55,10 +55,10 @@
             <div class="inline-cart-footer">
                 <h3 class="inline-cart-footer-title">TOTAL : ${{cartData.total_price}}</h3>
                 <div class="inline-cart-footer-disclaimer">* Taxes and shipping calculated at checkout</div>
-                <button-primary
+                <primary-button
                     text="CHECKOUT"
                     @buttonClick="onCheckoutClick()">
-                </button-primary>
+                </primary-button>
             </div>
         </div>
     </transition>
@@ -180,7 +180,7 @@
     import { EventBus, OpenCartModal, CloseCartModal, CartUpdated } from '../../../core/services/event.service';
     import { CartService } from '../../../core/services/cart.service';
     import CloseButton from '../buttons/close-button.vue';
-    import ButtonPrimary from '../buttons/primary-button.vue';
+    import PrimaryButton from '../buttons/primary-button.vue';
     import FlatButton from '../buttons/flat-button.vue';
     import IconButton from '../buttons/icon-button.vue';
 
@@ -205,7 +205,7 @@
         },
         components:{
             CloseButton,
-            ButtonPrimary,
+            PrimaryButton,
             FlatButton,
             IconButton
         },
