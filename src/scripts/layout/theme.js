@@ -56,17 +56,17 @@ const initVue = () => {
     methods: {},
   });
 
-  // new Vue({
-  //   delimiters: ['${', '}'],
-  //   el: '#app-theme-header',
-  //   data: {},
-  //   components: {
-  //     // Wrapper Component
-  //     ThemeHeader,
-  //     // Link,
-  //   },
-  //   methods: {},
-  // });
+  new Vue({
+    delimiters: ['${', '}'],
+    el: '#app-theme-header',
+    data: {},
+    components: {
+      // Wrapper Component
+      ThemeHeader,
+      // Link,
+    },
+    methods: {},
+  });
 };
 
 // Init all functions here.

@@ -6,5 +6,21 @@
     "theme_author": "BVAccel",
     "theme_documentation_url": "https://github.com/bvaccel/blank-slate",
     "theme_support_url": "https://github.com/bvaccel/blank-slate/issues"
+  },
+  {
+    "name": "Promo Bar",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_promobar",
+        "label": "Enable Promobar"
+      },
+      {
+        "type": "richtext",
+        "id": "promobar_content",
+        "label": "Promobar Content",
+        "info": "Try to keep this under 100 characters"
+      }
+    ]
   }
 ]

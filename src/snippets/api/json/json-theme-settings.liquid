@@ -1,0 +1,9 @@
+{%- if ids != blank -%}
+  {%- assign settings_ids = ids | split: ',' -%}
+  {
+    {%- for id in settings_ids -%}
+      "{{ id }}": {{ settings[id] | json | escape }}
+      {%- unless forloop.last %},{%- endunless -%}
+    {%- endfor -%}
+  }
+{%- endif -%}

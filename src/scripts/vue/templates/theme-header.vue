@@ -1,29 +1,17 @@
 // Template
 <template>
-  <div>
-    <div class="global-announcement">
-      new season sale: 20% off | code: seasons20
-    </div>
-    <div class="main-nav-wrapper">
-      <ul class="main-nav-list">
-        <nav-link v-for="(item, index) in items" :key="index" :link="item"></nav-link>
-      </ul>
-
-      <div class="flex">
-        <button class="icon-button-secondary">
-          <i class="fas fa-user"></i>
-        </button>
-        <button @click="onOpenCartClick()" class="icon-button-secondary">
-          <i class="fas fa-shopping-cart"></i>
-        </button>
-      </div>
-    </div>
+  <div class="header__spacer">
+    <header class="global-header">
+      <promobar v-if="theme_settings.enable_promobar" :content="theme_settings.promobar_content"></promobar>
+      <nav-main :settings="settings" :blocks="blocks"></nav-main>
+    </header>
   </div>
 </template>
 
 // JavaScript
 <script>
 import { EventBus, OpenCartModal } from '../services/event.service';
+import { JSONTemplateService } from '../services/json-template.service';
 
 /*******************
  * VALUE PROP CARD
@@ -32,9 +20,17 @@ export default {
   // Component Bindings
   name: 'ThemeHeader',
   props: {
-    items: {
-      type: Array,
+    theme_settings: {
+      type: Object,
+      required: true,
+    },
+    settings: {
+      type: Object,
       required: false,
+    },
+    blocks: {
+      type: Array,
+      required: true,
     },
   },
   // Component Data
@@ -42,7 +38,8 @@ export default {
     return {};
   },
   components: {
-    'nav-link': () => import('../components/navigation/NavLink.vue'),
+    promobar: () => import('../components/navigation/PromoBar.vue'),
+    'nav-main': () => import('../components/navigation/NavMain.vue'),
   },
   methods: {
     onOpenCartClick() {
@@ -51,7 +48,9 @@ export default {
   },
   created: function() {
     // On Init
-    console.log(this.items);
+    console.log(this.theme_settings);
+    console.log(this.settings);
+    console.log(this.blocks);
   },
 };
 </script>

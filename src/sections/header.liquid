@@ -1,56 +1,12 @@
-{%- assign enable_util_nav = false -%}
-{%- assign enable_search = false -%}
-{%- assign enable_account = false -%}
-{%- assign enable_wishlist = false -%}
-{%- assign enable_cart = false -%}
-{%- if section.settings['enable-search'] != blank -%}
-  {%- assign enable_search = true -%}
-  {%- assign enable_util_nav = true -%}
-{%- endif -%}
-{%- if section.settings['enable-account'] != blank -%}
-  {%- assign enable_account = true -%}
-  {%- assign enable_util_nav = true -%}
-{%- endif -%}
-{%- if section.settings['enable-wishlist'] != blank -%}
-  {%- assign enable_wishlist = true -%}
-  {%- assign enable_util_nav = true -%}
-{%- endif -%}
-{%- if section.settings['enable-cart'] != blank -%}
-  {%- assign enable_cart = true -%} 
-  {%- assign enable_util_nav = true -%}
-{%- endif -%}
-
-{%- assign section_settings_json = section.settings | json | escape -%}
-{%- capture section_blocks_json -%}
-{%- for block in section.blocks -%}
-  {%- assign fields = false -%}
-  {%- case block.type -%}
-    {%- when 'top' -%}
-      {%- assign fields = 'title, url, mobile_only, desktop_only, enable_highlight, highlight_color, enable_subnav' | split: ', ' -%}
-    {%- when 'sub' -%}
-      {%- assign fields = 'title, url, mobile_only, desktop_only, banner_title, banner_subtitle, banner_content, banner_text_color, image, enable_mobile_image, mobile_image, enable_mobile_description, mobile_description' | split: ', ' -%}
-  {%- endcase -%}
-  {
-    "type": {{- block.type | json -}},
-    "id": {{- block.id | json -}},
-    "fields": {{- fields | json -}}
-    {% comment %}{%- if fields -%},
-      {%- for field in fields -%}
-        {{- field | json -}}: {{- block.settings[field] | json | escape -}}
-        {%- unless forloop.last -%},{%- endunless -%}
-      {%- endfor -%}
-    {%- endif -%}{% endcomment %}
-  }
-{%- endfor -%}
-{%- endcapture -%}
-
-{{ section_blocks_json }}
 <div id="app-theme-header">
   <theme-header
-    :settings="{{- section_settings_json -}}"
-    :blocks="{{- section_blocks_json -}}">
+    :theme_settings='{% include "json-theme-settings", ids: "enable_promobar,promobar_content" %}'
+    :settings='{%- include "json-section-settings" -%}'
+    :blocks='{%- include "json-section-blocks" -%}'
+  >
   </theme-header>
 </div>
+
 
 {% schema %}
 {
