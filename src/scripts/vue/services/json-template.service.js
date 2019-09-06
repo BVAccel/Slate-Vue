@@ -1,6 +1,6 @@
 const $http = require('axios');
 
-const DOMAIN = {
+const PATH = {
   product: '/products/',
   menu: '/pages/menus/',
 };
@@ -14,7 +14,7 @@ export class JSONTemplateService {
   constructor() {}
 
   getJSON(type, handle) {
-    const url = `${DOMAIN[type]}${handle}${TEMPLATE_PARAM[type]}`;
+    const url = `${PATH[type]}${handle}${TEMPLATE_PARAM[type]}`;
     return $http.get(url).then((res) => res.data);
   }
 
