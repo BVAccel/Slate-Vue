@@ -1,0 +1,40 @@
+<vue-section-boilerplate
+  :settings='{%- include "json-section-settings" -%}'
+  :blocks='{%- include "json-section-blocks" -%}'
+></vue-section-boilerplate>
+
+{% schema %}
+{
+  "name": "Vue Section Boilerplate",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enabled",
+      "label": "Enable"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Block",
+      "type": "block",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "enabled",
+          "label": "Enable"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

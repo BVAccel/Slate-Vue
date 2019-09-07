@@ -1,0 +1,7 @@
+{%- capture section_blocks -%}
+  {%- for block in section.blocks -%}
+    {%- include 'json-block' -%}
+    {%- unless forloop.last -%},{%- endunless -%}
+  {%- endfor -%}
+{%- endcapture -%}
+[{{- section_blocks -}}]
