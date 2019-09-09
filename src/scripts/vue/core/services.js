@@ -1,4 +1,5 @@
 // Shopify Services
+import { ShopifyAdminService } from './services/shopify.admin.service'
 import { ShopifyService } from './services/shopify.service'
 
 // Event Services
@@ -14,6 +15,7 @@ import { CollectionQueries } from './services/graphql/queries/collection'
 import { SearchQueries } from './services/graphql/queries/search'
 
 export { 
+  ShopifyAdminService,
   ShopifyService, 
   EventBus, 
   CloseCartModal, 

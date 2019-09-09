@@ -1,7 +1,27 @@
-<vue-section-boilerplate
+{% comment %}<vue-section-boilerplate
   :settings='{%- include "json-section-settings" -%}'
   :blocks='{%- include "json-section-blocks" -%}'
-></vue-section-boilerplate>
+></vue-section-boilerplate>{% endcomment %}
+
+{% if section.settings.enabled != blank %}
+  <section>
+    {% if section.blocks.size > 0 %}
+      <ul>
+        {% for block in section.blocks %}
+          {% if block.settings.enabled != blank %}
+            <li v-for="key in section.block_order">
+              <img src="{{ block.settings.image | img_url: 'master' }}" />
+              {% if block.setting.title != blank %}
+                <p>{{ block.setting.title }}</p>  
+              {% endif %}
+            </li>    
+          {% endif %}
+        {% endfor %}
+      </ul>  
+    {% endif %}
+  </section>  
+{% endif %}
+
 
 {% schema %}
 {

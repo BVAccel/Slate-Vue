@@ -1,11 +1,11 @@
 // Template
 <template>
   <!-- Build section using props: settings & blocks -->
-  <section v-if="settings.enabled">
-    <ul v-if="blocks">
-      <li v-for="key in block_order" v-if="blocks[key].settings.enabled">
-        <img :src="blocks[key].settings.image" />
-        <p v-if="blocks[key].settings.title" v-text="blocks[key].settings.title"></p>
+  <section v-if="section.settings.enabled">
+    <ul v-if="section.blocks">
+      <li v-for="block in getBlocks()" v-if="block.settings.enabled">
+        <img :src="imgUrl(block.settings.image)" />
+        <p v-if="block.settings.title" v-text="block.settings.title"></p>
       </li>
     </ul>
   </section>
@@ -13,30 +13,27 @@
 
 // JavaScript
 <script>
+import { ShopifyAdminService } from './services';
+const shopifyAdminService = new ShopifyAdminService();
+
 export default {
   name: 'VueSectionBoilerplate',
   props: {
-    theme_settings: {
+    section: {
       type: Object,
-      required: false,
-    },
-    settings: {
-      type: Object,
-      required: false,
-    },
-    blocks: {
-      type: Object,
-      required: false,
-    },
-    block_order: {
-      type: Array,
-      required: false,
+      required: true,
     },
   },
+  methods: {
+    getBlocks: function () {
+      return this.section.block_order.map((handle) => {
+        return this.section.blocks[handle];
+      });
+    },
+    imgUrl: shopifyAdminService.imgUrl,
+  },
   created: function() {
-    // console.log(this.theme_settings);
-    // console.log(this.settings);
-    console.log(this.blocks);
+    // console.log('SECTION:', this.section);
   },
 };
 </script>

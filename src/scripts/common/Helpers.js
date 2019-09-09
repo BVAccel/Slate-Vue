@@ -86,3 +86,7 @@ export const handlize = (string) => {
     .toLowerCase()
     .replace(/[\s_]/g, '-');
 };
+
+export const imgUrl = (url) => {
+  return url.replace('shopify://shop_images', window.bvaccel.cdn);
+};
