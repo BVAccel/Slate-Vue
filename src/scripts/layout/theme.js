@@ -4,7 +4,7 @@ import 'styles/theme.scss.liquid';
 // Vue components
 import ThemeTemplate from '../vue/templates/theme.vue';
 import ThemeTemplateFooter from '../vue/templates/theme-footer.vue';
-import ThemeHeader from '../vue/templates/theme-header.vue';
+// import ThemeHeader from '../vue/templates/theme-header.vue';
 
 // Common a11y fixes
 focusHash();
@@ -61,9 +61,7 @@ const initVue = () => {
     el: '#app-theme-header',
     data: {},
     components: {
-      // Wrapper Component
-      ThemeHeader,
-      // Link,
+      'header-mega-nav': () => import('../vue/components/navigation/header-mega-nav.vue'),
     },
     methods: {},
   });
