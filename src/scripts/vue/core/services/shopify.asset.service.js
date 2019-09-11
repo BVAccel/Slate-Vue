@@ -2,7 +2,7 @@ export class ShopifyAssetService {
   constructor() {
     this.config = {
       shop: process.env.SHOP_DOMAIN,
-      headers_key: process.env.HEADERS_KEY,
+      header_key: process.env.HEADERS_KEY,
       header_value: process.env.ASSET_PASS,
       settings_path: process.env.SETTINGS_PATH,
     };
@@ -28,7 +28,7 @@ export class ShopifyAssetService {
    */
   getThemeSettingsData(themeId) {
     const headers = {};
-    headers[`${this.x(this.config.headers_key)}`] = this.x(this.config.header_value);
+    headers[`${this.x(this.config.header_key)}`] = this.x(this.config.header_value);
     return fetch(this.getThemeSettingsUri(themeId), { headers })
       .then((res) => res.json())
       .then((res) => JSON.parse(res.asset.value).current);

@@ -2,7 +2,6 @@
 
 // Configuration file for all things Slate.
 // For more information, visit https://github.com/Shopify/slate/wiki/Slate-Configuration
-// require('dotenv').config();
 const path = require('path');
 const { ProvidePlugin } = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
