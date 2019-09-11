@@ -2,10 +2,10 @@
 
 // Configuration file for all things Slate.
 // For more information, visit https://github.com/Shopify/slate/wiki/Slate-Configuration
-
 const path = require('path');
 const { ProvidePlugin } = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 // const graphqlLoader = require('graphql-tag/loader');
 const { minLegacySingleScriptsPlugin, minLegacyMegaScriptPlugin } = require('./legacy-config');
 const { VueLoaderPlugin } = require('vue-loader');
@@ -21,7 +21,7 @@ const plugins = [
     jQuery: 'jquery',
     'window.$': 'jquery',
     'window.jQuery': 'jquery',
-    Vue: 'vue/dist/vue.js'
+    Vue: 'vue/dist/vue.js',
   }),
   new CopyWebpackPlugin(
     [
@@ -41,6 +41,7 @@ const plugins = [
   new VueLoaderPlugin(),
   minLegacyMegaScriptPlugin,
   minLegacySingleScriptsPlugin,
+  new Dotenv(),
 ];
 
 const rules = [
@@ -53,14 +54,12 @@ const rules = [
   // }
   {
     test: /\.vue$/,
-    use: [
-      { loader: 'vue-loader' }
-    ]
-  }
+    use: [{ loader: 'vue-loader' }],
+  },
 ];
 
 const alias = {
-  'vue$': 'vue/dist/vue.esm.js',
+  vue$: 'vue/dist/vue.esm.js',
   styles: path.resolve('./src/styles'),
   scripts: path.resolve('./src/scripts'),
 };
@@ -71,6 +70,7 @@ module.exports = {
   'paths.theme.src.sections': `sections/${sectionsBase}`,
   'paths.theme.src.snippets': `snippets/${snippetsBase}`,
   'webpack.extend': {
+    node: { fs: 'empty' },
     externals,
     plugins,
     resolve: { alias, extensions: ['.mjs', '.js', '.css', '.json', '.vue'] },

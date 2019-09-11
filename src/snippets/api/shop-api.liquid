@@ -2,6 +2,7 @@
   document.documentElement.className = document.documentElement.className.replace('no-js', '');
 
   window.bvaccel = {
+    filesCDN: {{ '' | file_url | split: '?' | first | json }},
     product: {
       handle: {{ product.handle | json }},
     },
