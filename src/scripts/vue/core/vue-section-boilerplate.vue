@@ -13,8 +13,8 @@
 
 // JavaScript
 <script>
-import { ShopifyAdminService } from './services';
-const shopifyAdminService = new ShopifyAdminService();
+import { ShopifyAssetService } from './services';
+const shopifyAssetService = new ShopifyAssetService();
 
 export default {
   name: 'VueSectionBoilerplate',
@@ -25,12 +25,12 @@ export default {
     },
   },
   methods: {
-    getBlocks: function () {
+    getBlocks: function() {
       return this.section.block_order.map((handle) => {
         return this.section.blocks[handle];
       });
     },
-    imgUrl: shopifyAdminService.imgUrl,
+    imgUrl: shopifyAssetService.imgUrl,
   },
   created: function() {
     // console.log('SECTION:', this.section);

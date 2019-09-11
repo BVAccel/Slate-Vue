@@ -1,5 +1,25 @@
-export class ShopifyAdminService {
-  constructor() {}
+export class ShopifyAssetService {
+  constructor() {
+    this.config = {
+      shop: process.env.SHOP_DOMAIN,
+      headers_key: process.env.HEADERS_KEY,
+      header_value: process.env.ASSET_PASS,
+      settings_path: process.env.SETTINGS_PATH,
+    };
+  }
+
+  /**
+   * Abstract base64 decoding.
+   * @param {String} s - The string to decode.
+   * @return {String} The decoded value.
+   */
+  x(s) {
+    return atob(s);
+  }
+
+  getThemeSettingsUri(themeId) {
+    return `https://${this.config.shop}/admin/api/2019-07/themes/${themeId || Shopify.theme.id}/assets.json?asset[key]=${this.config.settings_path}`;
+  }
 
   /**
    * Retreive settings_data.json asset.
@@ -7,9 +27,11 @@ export class ShopifyAdminService {
    * @return {Promise Resolve <Object>} The active set of theme settings
    */
   getThemeSettingsData(themeId) {
-    return fetch(`/admin/themes/${themeId || Shopify.theme.id}/assets.json?asset[key]=config/settings_data.json`)
-    .then((res) => res.json())
-    .then((res) => JSON.parse(res.asset.value).current);
+    const headers = {};
+    headers[`${this.x(this.config.headers_key)}`] = this.x(this.config.header_value);
+    return fetch(this.getThemeSettingsUri(themeId), { headers })
+      .then((res) => res.json())
+      .then((res) => JSON.parse(res.asset.value).current);
   }
 
   /**
@@ -38,13 +60,13 @@ export class ShopifyAdminService {
   }
 
   /**
-   * Convert a shopify image to a url. 
+   * Convert a shopify image to a url.
    * Relies on window.bvaccel.filesCDN [snippets/shop-api].
    * @param {String} url - The shopify image url, shopify protocol.
    * @return {String} The files CDN image url.
    * TODO: Add support for sizing, crop & scale img_url parameters.
    */
-  imgUrl (url) {
+  imgUrl(url) {
     return url.replace('shopify://shop_images/', window.bvaccel.filesCDN);
   }
 }

@@ -2,7 +2,7 @@
   document.documentElement.className = document.documentElement.className.replace('no-js', '');
 
   window.bvaccel = {
-    filesCDN: 'https://cdn.shopify.com/s/files/1/0257/9457/6458/files/', // Stolen from the admin/settings/files area
+    filesCDN: {{ '' | file_url | split: '?' | first | json }},
     product: {
       handle: {{ product.handle | json }},
     },
