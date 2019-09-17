@@ -1,0 +1,6 @@
+{%- layout none -%}
+{%- assign path_array = request.path | split: '/' -%}
+{%- if path_array.size >= 4 -%}
+  {%- assign menu_handle = path_array | last -%}
+  {%- include 'json-linklist', list: linklists[menu_handle].links -%}
+{%- endif -%}
