@@ -7,7 +7,7 @@ import { EventBus, CloseCartModal, OpenCartModal, CartUpdated } from './services
 // Cart Services
 import { CartService } from './services/cart.service';
 
-// Cart Services
+// JSON Template Services
 import { JSONTemplateService } from './services/json-template.service';
 
 // GraphQL Services
