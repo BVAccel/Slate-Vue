@@ -14,9 +14,8 @@
           "child_current": {{- link.child_current | json -}},
           "levels": {{- link.levels | json -}}
           {% if link.links.size > 0 %}
-            
             {%- capture links -%}
-              {%- include 'json-linklist', list: link.links, escape: false -%}
+              {%- include 'json-linklist', list: link.links -%}
             {%- endcapture -%}
             ,"links": {{- links -}}
           {% endif %}
@@ -25,9 +24,5 @@
       {%- endfor -%}
     ]
   {%- endcapture -%}
-  {% if escape %}
-    {{- json | escape -}}
-  {% else %}
-    {{- json -}}
-  {% endif %}
+  {{- json -}}
 {%- endif -%}
