@@ -1,0 +1,28 @@
+
+.fade-enter-active, .fade-leave-active {
+	transition: opacity .4s ease-in-out;
+}
+
+.fade-enter, .fade-leave-active {
+	opacity: 0;
+}
+
+.fade-delayed-enter-active, .fade-delayed-leave-active {
+	transition: opacity .4s ease-in-out 3s;
+}
+
+.fade-delayed-enter, .fade-delayed-leave-active {
+	opacity: 0;
+}
+
+.fade-overlap-enter-active {
+	transition: opacity .3s ease-in-out .1s;
+}
+
+.fade-overlap-leave-active {
+	transition: opacity .3s ease-in-out .3s;
+}
+
+.fade-overlap-enter, .fade-overlap-leave-active {
+	opacity: 0;
+}

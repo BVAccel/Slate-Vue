@@ -1,0 +1,47 @@
+.collection {
+	max-width: 1440px;
+	margin: 0 auto;
+  	padding: 0;
+	@include desktop-up {
+		padding: 0px 20px 0px 20px;
+	}
+	@include mobile-only {
+		flex-direction: column;
+		grid-template-columns: 100%;
+	}
+	&-link-list{
+		display: flex;
+		
+	}
+	&__sidebar {
+		width: 100%;
+		height: 100%;
+		padding:0px 20px 80px 20px;
+		// max-height: 100vh;
+		overflow: auto;
+		position: sticky;
+		top:90px;
+		max-width: 340px;
+		@media screen and (max-width: 1159px) {
+			display: none;
+		}
+	}
+	&__content {
+		flex: 1;
+		padding:20px 0px 110px 40px;
+		// overflow: scroll;
+		@media screen and (max-width: 1159px) {
+			padding:8px 0px 110px 0px;
+			// max-height: 100vh;
+		}
+	}
+	&-filters{
+		/* hide the collection filter component in the filter panel
+		on desktop and show the draw one only.*/
+		&-desktop{
+			@media screen and (max-width: 1159px) {
+				display: none;
+			}
+		}
+	}
+}

@@ -1,0 +1,35 @@
+.product-reviews {
+	background-color: $color-white;
+	margin-top: 127px;
+
+	@include tablet-up {
+		margin-top: 79px;
+	}
+
+	.container {
+		position: relative;
+		top: -67px;
+		padding-left: 0;
+		padding-right: 0;
+		max-width: 961px;
+
+		@include tablet-up {
+			top: -25px;
+			padding-bottom: 62px;
+		}
+	}
+
+	&__title {
+		font-size: rem(40);
+		font-weight: 500;
+		letter-spacing: -0.1px;
+		line-height: 44px;
+		padding: 0 30px;
+		max-width: 350px;
+
+		@include tablet-up {
+			max-width: none;
+			line-height: 55px;
+		}
+	}
+}

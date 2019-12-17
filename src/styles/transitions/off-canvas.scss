@@ -1,0 +1,29 @@
+// off canvas left
+.off-canvas-left-enter-active, .off-canvas-left-leave-active {
+  transition: all .4s ease-in-out;
+}
+
+.off-canvas-left-enter, .off-canvas-left-leave-active {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+// off canvas right
+.off-canvas-right-enter-active, .off-canvas-right-leave-active {
+  transition: all .4s ease-in-out;
+}
+
+.off-canvas-right-enter, .off-canvas-right-leave-active {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+// off canvas top
+.off-canvas-top-enter-active, .off-canvas-top-leave-active {
+  transition: all .4s ease-in-out;
+}
+
+.off-canvas-top-enter, .off-canvas-top-leave-active {
+  opacity: 0;
+  transform: translateY(-100%);
+}

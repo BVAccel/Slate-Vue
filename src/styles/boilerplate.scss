@@ -1,0 +1,19 @@
+
+/*
+
+  Boilerplate is a collection of all the SCSS partials
+  that do not output CSS when compiled.
+
+  Include this file in components to pull in theme
+  variables, functions, and mixins for use in scoped
+  styling.
+
+*/
+
+// settings
+@import 'variables';
+
+// tools
+@import 'tools/functions';
+@import 'tools/media-queries';
+@import 'tools/mixins';

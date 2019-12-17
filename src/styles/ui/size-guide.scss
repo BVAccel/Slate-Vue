@@ -1,0 +1,62 @@
+.size-guide {
+  margin: 24px auto;
+
+  &__heading {
+    font-size: rem(20); 
+    font-weight: 400;
+    letter-spacing: -0.08px; 
+    line-height: 28px;
+    margin-top:0;
+    margin-bottom: 9px;
+    padding: 24px 24px 0 24px;
+
+    @include tablet-up {
+      font-size: rem(25); 
+      line-height: 36px;
+      letter-spacing: 0;
+      padding: 0;
+    }
+  }
+
+  &__table {
+    width: 100%;
+    text-align: center;
+    border: 1px solid $border--light;
+    border-collapse: collapse;
+
+    &--wrapper {
+      overflow-x: scroll;
+      padding: 0 24px;
+
+      @include tablet-up {
+        padding: 0;
+      }
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid $border--light;
+      font-family: $font-gotham;
+      font-size: rem(13);
+      font-weight: 400;
+      line-height: 21px;
+
+      &.is-unavailable {
+        color: $color-coal;
+        background-color: rgba($color-lightest-grey, 0.1);
+      }
+
+      @include tablet-up {
+        padding: 16px;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    &__row-heading {
+        width: 132px;
+    }
+  }
+}

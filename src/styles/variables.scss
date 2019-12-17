@@ -1,0 +1,156 @@
+
+// ---------------------------------
+//   Colors
+// ---------------------------------
+
+// Primary Brand Colors
+$color-ivory: #F7F2DF;
+$color-sand: #CCBA87;
+$color-cream: #E2D7C6;
+$color-sage: #9AB59C;
+$color-pine: #758A78;
+$color-pine-aa: #677967;
+$color-coal: #63656A;
+
+// Secondary Brand Colors
+$color-lemon: #FBF49B;
+$color-apricot: #F3CA99;
+$color-blush: #F3D2D5;
+$color-terra-cotta: #BF755D;
+$color-big-sky: #D3EDF2;
+$color-zenith: #ACD0D7;
+$color-plum: #BF99AE;
+$color-pebble: #4A424C;
+$color-fog: #F3F4F4;
+$color-sienna: #D1D0BB;
+$color-fossil: #BFB5AF;
+$color-umber: #A59D97;
+$color-linen: #F7EEE5;
+
+// Web colors
+$color-white: #FFFFFF;
+$color-light-ivory: #FBFAF7;
+$color-dirty-ivory: #EBEAE1;
+$color-off-grey: #A9A9A9;
+$color-light-grey: #BFB5AF;
+$color-lightest-grey: #8E8E8E;
+$color-dark-grey: #404040;
+$color-dark-grey--lighter: #4C4C4B;
+$color-off-black: #464646;
+$color-black: #292929;
+
+$color-transparent-black: rgba(#222222, 0.5);
+
+// ---------------------------------
+//   Color Usage
+// ---------------------------------
+
+$color--primary: $color-pine;
+$color--primary--hover: lighten(saturate(adjust-hue($color--primary, -4), 7.19), 15.69);
+$color--primary--aa: $color-pine-aa;
+$color--secondary: $color-terra-cotta;
+$color--secondary--hover: lighten(saturate(adjust-hue($color--secondary, -4), 7.19), 15.69);
+
+$color--accent: $color-sand;
+$color--disabled: $color-fog;
+$color--error: $color-terra-cotta;
+$color--error-light: lighten(saturate(adjust-hue($color--error, -4), 7.19), 15.69);
+$color--warning: $color-sand;
+$color--success: $color-pine;
+$color--success-light: lighten(saturate(adjust-hue($color--success, -4), 7.19), 15.69);
+$color--success-dark: darken(saturate(adjust-hue($color--success, -4), 7.19), 15.69);
+
+// background colors
+$bg--main: $color-light-ivory;
+$bg--alt: $color-ivory;
+$bg--light: $color-white;
+$bg--dark: $color-dark-grey;
+$bg--overlay: $color-transparent-black;
+
+// borders
+$border--main: $color-dirty-ivory;
+$border--light: $color-light-grey;
+$border--lightest: $color-ivory;
+$border--dark: rgba($color-black, 0.15);
+$border--input: $color-dirty-ivory;
+$border--focus: $color-sienna;
+$border--accent: $color-sand;
+$border--accent--light: rgba($color-sand, 0.15);
+
+// shadows
+$drop-shadow: 0 3px 8px rgba($color-dark-grey, 0.1);
+$drop-shadow--light: 0 3px 8px rgba($color-umber, 0.05);
+
+// forms
+$form-field--neutral: $color-white;
+$form-field--focus: $color-sand;
+$form-field--error: $color--error;
+$form-field--warning: $color--warning;
+
+// typography
+$text--main: $color-dark-grey;
+$text--dark: $color-dark-grey;
+$text--mid: $color-dark-grey--lighter;
+$text--light: $color-white;
+$text--accent: $color-sand;
+$text--completed: $color-light-grey;
+$text--subtitle: $color-light-grey;
+
+// ---------------------------------
+//   Type
+// ---------------------------------
+
+// fonts
+$font-header--main: 'GT Walsheim', Arial, sans-serif;
+$font-body--main: 'GT Walsheim', Arial, sans-serif;
+
+$font-surveyor: 'Surveyor Display', TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;
+$font-gotham: 'Gotham', Arial, sans-serif;
+
+$content-gutter: 1rem;
+
+// font size
+$h1-size: 32;
+$h2-size: 24;
+$h3-size: 18.72;
+$h4-size: 16;
+$h5-size: 13.28;
+$h6-size: 10.72;
+
+$navbar-text--link: $text--accent;
+
+// ---------------------------------
+//   Document
+// ---------------------------------
+
+// media queries
+$breakpoint-tablet-small: 768px;
+$breakpoint-tablet: 996px;
+$breakpoint-desktop: 1160px;
+$breakpoint-desktop-large: 1200px;
+$breakpoint-hd: 1440px;
+
+// grid
+$grid-gutter: 24px;
+$mobile-grid-gutter: 12px;
+$grid-column-count: 12;
+$block-grid-column-count: 8;
+
+$container-max-width: $breakpoint-hd;
+
+// headers
+$mobile-header-height: 55px;
+$mobile-promo-bar-height: 30px;
+$mobile-nav-height: $mobile-header-height + $mobile-promo-bar-height;
+
+// ---------------------------------
+//   Exports
+// ---------------------------------
+
+:export {
+  breakTabletSmall: $breakpoint-tablet-small;
+  breakTablet: $breakpoint-tablet;
+  breakDesktop: $breakpoint-desktop;
+  breakDesktopLarge: $breakpoint-desktop-large;
+  breakHd: $breakpoint-hd;
+}

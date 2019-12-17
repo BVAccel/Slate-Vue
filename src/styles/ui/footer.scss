@@ -1,0 +1,256 @@
+
+.footer {
+  background-color: $bg--light;
+  color: $text--main;
+  position: relative;
+
+  &__content {
+    position: relative;
+    padding: 70px 20px;
+
+    @include tablet-up {
+      display: flex;
+      padding: 130px $grid-gutter 280px $grid-gutter;
+    }
+
+    @include desktop-up {
+      padding-left: 82px;
+      padding-right: 82px;
+    }
+  }
+
+  &__logo {
+    width: 70px;
+    position: absolute;
+    top: -26px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+
+    .icon {
+      width: 70px;
+      height: 70px;
+      fill: $color-sand;
+    }
+
+    @include tablet-up {
+      margin: 0;
+      left: $grid-gutter;
+    }
+
+    @include desktop-up {
+      width: 90px;
+      margin: 0;
+      left: 80px;
+
+      .icon {
+        width: 90px;
+        height: 90px;
+      }
+    }
+  }
+
+  &__contact {
+    @include tablet-up {
+      width: 30%;
+    }
+    &__heading {
+      font-family: $font-surveyor;
+      font-size: 30px; 
+      font-weight: 300;
+      letter-spacing: -0.1px;
+      line-height: 27px; 
+      text-align: center;
+      margin: 0;
+
+      @include tablet-up {
+        text-align: left;
+        margin-bottom: 20px;
+      }
+    }
+    &__links {
+      margin: 20px auto 35px auto;
+      font-size: 14px; 
+      font-weight: 300;
+      line-height: 32px;
+
+      @include tablet-up {
+        margin: 0;
+      }
+    }
+
+    &__link {
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.3px;
+
+      span, .icon {
+        display: block;
+      }
+
+      .icon {
+        fill: $color--primary;
+        margin-right: 7px;
+      }
+    }
+  }
+
+  &__links {
+    @include tablet-up {
+      display: flex;
+      flex-wrap: wrap;
+      width: 40%;
+    }
+
+    &__group {
+      @include tablet-up {
+        width: 50%;
+        min-width: 186px;
+        padding: 0 32px 0 0;
+      }
+    }
+  }
+
+  &__linklist {
+    padding: 0 16px 32px 16px;
+
+    @include tablet-up {
+      padding: 0;
+    }
+
+    &__header {
+      font-size: 14px; 
+      font-weight: 500;
+      line-height: 27px;
+      margin-top: 0;
+      margin-bottom: 17px;
+    }
+    &__link {
+      display: block;
+      font-size: 14px; 
+      font-weight: 300; 
+      padding: 18px 0;
+
+      @include tablet-up {
+        padding: 0;
+        line-height: 33px;
+      }
+    }
+  }
+
+  &__social {
+    margin-top: 56px;
+
+    @include tablet-up {
+      width: 30%;
+      margin-top: 0;
+    }
+
+    &__header {
+      font-size: 16px; 
+      line-height: 27px;
+      font-weight: 500;
+      margin-top: 0;
+      margin-bottom: 17px;
+
+      @include tablet-up {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__social-links {
+    margin-top: 70px;
+    text-align: center;
+
+    @include tablet-up {
+      margin-top: 35px;
+      text-align: left;
+    }
+
+    &__link {
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+    }
+
+    .icon {
+      fill: $color-sand;
+
+      &:hover {
+        fill: $color--primary;
+      }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    height: 45px;
+    justify-content: space-between;
+    align-items: center;
+    
+    span, a {
+      display: block;
+      font-size: 11px; 
+      font-weight: 300;
+      line-height: 26px;
+      color: $color-coal;
+    }
+
+    &__linklist li:not(last-child) {
+      padding-right: 12px;
+    }
+
+    @include tablet-up {
+      justify-content: flex-start;
+
+      &__linklist li:not(last-child) {
+        padding-right: 0;
+      }
+
+      span, a {
+        margin-right: 30px;
+      }
+    }
+  }
+
+  .contact-form {
+    border-bottom: 1px solid $color-ivory;
+    min-height: 35px;
+    
+  }
+  &__signup-form_input {
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    width: 100%;
+  }
+
+  .newsletter_label { }
+  .newsletter__input {
+    outline: none;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 0;
+    -webkit-appearance: none;
+    font-size: 14px;  
+    font-weight: 300; 
+    line-height: 18px;
+    padding: 12px 0;
+    flex: 1;
+  }
+  .newsletter__button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    transition: transform .2s ease-in-out;
+    &:hover {
+      transform: translateX(8px);
+    }
+  }
+}

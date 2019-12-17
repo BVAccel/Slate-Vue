@@ -1,0 +1,117 @@
+
+// ---------------------------------
+//   Visibility
+// ---------------------------------
+
+.u-hidden {
+  display: none !important;
+}
+
+.u-hidden-mobile-only {
+  @include mobile-only {
+    display: none !important;
+  }
+}
+
+.u-hidden-tablet-up {
+  @include tablet-up {
+    display: none !important;
+  }
+}
+
+.u-hidden-tablet-only {
+  @include tablet-only {
+    display: none !important;
+  }
+}
+
+.u-hidden-desktop-up {
+  @include desktop-up {
+    display: none !important;
+  }
+}
+
+.u-hidden-desktop-only {
+  @include desktop-only {
+    display: none !important;
+  }
+}
+
+.u-hidden-hd-up {
+  @include hd-up {
+    display: none !important;
+  }
+}
+
+/*
+  This will hide the focus indicator if the element receives focus via the mouse,
+  but it will still show up on keyboard focus.
+  https://yarnpkg.com/en/package/focus-visible
+*/
+.js-focus-visible :focus:not([data-focus-visible-added]) {
+  outline: none;
+}
+
+// ---------------------------------
+//   background Color
+// ---------------------------------
+
+.u-bg-main {
+  background-color: $bg--main;
+}
+
+// ---------------------------------
+//   Lists
+// ---------------------------------
+
+.u-list-simple {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.u-list-inline {
+  @extend .u-list-simple;
+
+  li {
+    display: inline-block;
+  }
+}
+
+// ---------------------------------
+//   Misc
+// ---------------------------------
+
+.u-sr-only {
+	border: 0 !important;
+	clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+	-webkit-clip-path: inset(50%) !important;
+		clip-path: inset(50%) !important; /* 2 */
+	height: 1px !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	padding: 0 !important;
+	position: absolute !important;
+	width: 1px !important;
+	white-space: nowrap !important; /* 3 */
+}
+
+.u-clear-button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.u-pointer {
+  cursor: pointer;
+}
+
+.u-no-link {
+  &, &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+}

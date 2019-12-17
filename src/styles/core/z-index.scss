@@ -1,0 +1,53 @@
+
+// misc lower priority
+.content-block__title-image {
+  z-index: 10;
+}
+
+// navigation
+.navbar {
+  z-index: 15;
+}
+
+.navbar__mobile__nav {
+  z-index: 48;
+}
+
+.navbar__mobile__subnav,
+.navbar__desktop__overlay {
+  z-index: 49;
+}
+
+.navbar__mobile,
+.navbar__desktop__wrapper,
+.navbar__subnav {
+  z-index: 50;
+}
+
+.navbar__mobile__header,
+.navbar__promo-bar {
+  z-index: 60;
+}
+
+// zendesk widget... z-index on iframe is inline
+.zEWidget-launcher {
+  z-index: 98 !important;
+}
+
+// sidecart
+.sidecart__overlay {
+  z-index: 99;
+}
+
+.sidecart {
+  z-index: 100;
+}
+
+// misc higher priority
+.modal {
+  z-index: 200;
+}
+
+.toast {
+  z-index: 201;
+}

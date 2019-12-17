@@ -65,7 +65,7 @@
     "lodash.merge": "^4.6.1",
     "lodash.uniqby": "^4.7.0",
     "lodash.uniqwith": "^4.5.0",
-    "normalize.css": "^7.0.0",
+    "normalize.css": "^8.0.1",
     "pubsub-js": "^1.7.0",
     "react": "^16.7.0",
     "react-apollo": "^2.3.3",
@@ -75,6 +75,7 @@
     "vue": "^2.6.10",
     "vue-gql": "^0.2.3",
     "vue-loader": "^15.7.1",
+    "vue-select": "^3.4.0",
     "vue-template-compiler": "^2.6.10",
     "webpack-merge-and-include-globally": "^2.1.16"
   },

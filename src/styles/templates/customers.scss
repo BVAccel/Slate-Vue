@@ -1,0 +1,888 @@
+// general layout
+.customers {
+  h1, h2 {
+    text-align: center;
+  }
+  h1 {
+    font-size: 36px;
+    @include tablet-up {
+      font-size: 48px;
+    }
+  }
+  h2 {
+    font-size: 24px;
+    @include tablet-up {
+      font-size: 36px;
+    }
+  }
+  .back-arrow {
+    width: 21px;
+    height: 18px;
+    margin: 0 14px 0 0;
+  }
+  .errors {
+    margin-top: 20px;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 12px;
+    }
+  }
+  .validation-message {
+    font-size: 12px;
+    margin: 10px 0;
+    text-align: left;
+  }
+  .form-container {
+    max-width: 360px;
+    margin: 40px auto 0;
+    padding: 0 40px;
+    .input {
+      margin: 20px 0 0;
+      label {
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 18px;
+      }
+    }
+    p {
+      text-align: center;
+    }
+    @include tablet-up {
+      padding: 0;
+    }
+  }
+  .form-state-tabs {
+    text-align: center;
+    margin: 30px 0 0 0;
+    width: 100%;
+    .tab {
+      color: $color-dark-grey;
+      font-family: $font-header--main;
+      text-decoration: none;
+      font-size: 16px;
+      margin: 0 10px;
+      &.active {
+        border-bottom: 2px solid $color-pine;
+      }
+    }
+    @include tablet-up {
+      max-width: 310px;
+      margin: 0 auto;
+    }
+  }
+  .button-container {
+    max-width: 200px;
+    margin: 30px auto 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    .button {
+      margin: 0 0 20px 0;
+    }
+  }
+  .input-group {
+    display: flex;
+    justify-content: space-between;
+    .input {
+      width: 48%;
+    }
+  }
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px auto 0;
+    width: 70%;
+    flex-direction: column;
+    .button-container {
+      max-width: none;
+      margin: 0;
+      width: 100%;
+      .button {
+        width: 100%;
+      }
+      // I had to add his because something in the "Boilerplate" SCSS being used in one of the components is overriding the correct border and hover style on secondary buttons. This can be removed once that is fixed.
+      // .button--secondary {
+      //   border-color: $color-pine;
+      //   &:hover {
+      //     border-color: $color-blue-light;
+      //   }
+      // }
+    }
+    @include tablet-up {
+      flex-direction: row;
+      .button-container {
+        width: 48%;
+      }
+    }
+  }
+}
+
+// login.liquid & register.liquid
+.login-template, .register-template {
+  display: flex;
+  flex-wrap: wrap;
+  .login-splash {
+    height: 320px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    @include tablet-up {
+      width: 50%;
+      height: auto;
+      min-height: 100vh;
+    }
+  }
+  .login-form {
+    width: 100%;
+    h1 {
+      max-width: 300px;
+      font-size: 40px;
+      font-weight: 500;
+      line-height: 55px;
+      color: $color-dark-grey;
+      text-align: center;
+      margin: 1rem auto;
+      @include tablet-up {
+        max-width: 360px;
+      }
+    }
+    p {
+      max-width: 300px;
+      margin: 0 auto 3rem auto;
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 18px;
+      text-align: center;
+      @include tablet-up {
+        max-width: 360px;
+      }
+    }
+    @include hd-up {
+      padding: 90px 180px;
+    }
+    @include tablet-up {
+      width: 50%;
+      padding: 90px;
+    }
+  }
+  .form-container.register {
+    .button-container {
+      max-width: none;
+      margin: 30px 0 0 0;
+    }
+  }
+  .login-buttons {
+    max-width: 200px;
+    margin: 30px auto 0;
+    text-align: center;
+    .button {
+      width: 100%;
+      margin: 0 0 20px 0;
+    }
+    .login-recover {
+      display: inline-block;
+      color: $color-dark-grey;
+      font-family: $font-header--main;
+      font-size: 12px;
+      border-bottom: 2px solid $color-dark-grey;
+      margin-bottom: 20px;
+    }
+  }
+  .login-recovery-modal {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-width: 544px;
+    z-index: 99999;
+    cursor: default;
+    p {
+      margin-top: 0;
+      text-align: center;
+      font-size: 12px;
+    }
+    .button {
+      max-width: 200px;
+      margin-bottom: 0;
+    }
+    .login-recovery-modal-close {
+      position: absolute;
+      width: 17px;
+      height: 17px;
+      line-height: 17px;
+      font-size: 30px;
+      font-weight: bold;
+      top: 16px;
+      right: 16px;
+      user-select: none;
+      cursor: pointer;
+    }
+    .validation-message  {
+      text-align: left;
+    }
+    .form-success, .errors {
+      border: none;
+    }
+    @include tablet-up {
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+// Account Dash - shared by account.liquid, 
+.account-dash {
+  max-width: $breakpoint-hd;
+  width: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 40px auto;
+  .account-nav-desktop {
+    display: none;
+    width: 100%;
+    max-width: 344px;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .account-nav-menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 264px;
+      width: 100%;
+      padding: 0 0 0 20px;
+      text-decoration: none;
+      font-family: $font-header--main;
+      color: $color-black;
+      line-height: 46px;
+      font-size: 18px;
+      &.active {
+        background: white;
+      }
+      .arrow-icon {
+        margin-right: 20px;
+        fill: $color-coal;
+      }
+    }
+    @include tablet-up {
+      display: block;
+    }
+    .need-help {
+      padding-left: 20px;
+      margin-top: 120px;
+      margin-bottom: 16px;
+      strong {
+        font-family: $font-body--main;
+        color: $color-pine;
+        font-size: 16px;
+        line-height: 21px;
+        letter-spacing: -0.1px;
+        font-weight: 500;
+      }
+      p {
+        font-family: $font-gotham;
+        color: $color-dark-grey--lighter;
+        font-size: 13px;
+        line-height: 19px;
+      }
+    }
+    .returns {
+      padding-left: 20px;
+      a {
+        font-family: $font-gotham;
+        color: $color-dark-grey--lighter;
+        font-size: 13px;
+        line-height: 19px;
+      }
+    }
+  }
+  .account-nav-desktop-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    h1 {
+      font-weight: 500;
+      text-align: left;
+      font-size: 25px;
+      margin: 0 0 12px 0;
+    }
+    p {
+      font-family: $font-gotham;
+      margin: 0;
+      font-weight: 400;
+      font-size: 16px;
+      letter-spacing: 0.2px;
+    }
+    .logout-mobile {
+      color: $color-pine;
+      text-decoration: underline;
+      letter-spacing: -0.09px;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 18px;
+    }
+    @include tablet-up {
+      margin: 0 0 40px 0;
+      padding-left: 20px;
+    }
+  }
+  .account-nav-mobile {
+    display: block;
+    padding: 18px;
+    select {
+      margin: 12px 0 0;
+    }
+    @include tablet-up {
+      display: none;
+    }
+    .account-nav-mobile-select {
+      margin: 30px 0 5px;
+      select {
+        display: none;
+      }
+    }
+  }
+  .account-content-area {
+    margin: 0;
+    width: 100%;
+    .panel {
+      display: flex;
+      flex-direction: column;
+      h2 {
+        display: none;
+        text-align: left;
+        font-size: 24px;
+        margin: 0 0 40px 0;
+      }
+    }
+    @include tablet-up {
+      margin: 0 0 0 40px;
+      h2 {
+        display: inline-block;
+      }
+    }
+  }
+  .table-wrapper {
+    padding: 0;
+    max-width: 720px;
+    min-height: 367px;
+    background: white;
+    width: 100%;
+    @include tablet-up {
+      padding: 10px 20px;
+    }
+    @include mobile-to-tablet {
+      margin: 0 auto;
+    }
+  }
+  .orders-table {
+    font-family: $font-gotham;
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+    th, tr {
+      height: 60px;
+      font-size: 13px;
+      border-bottom: 1px solid #CCBA8720;
+    }
+    th {
+      font-size: 13px;
+      font-weight: normal;
+    }
+    a {
+      text-decoration: none;
+      color: $color-pine;
+    }
+    td {
+      font-size: 12px;
+      img {
+        width:12px;
+        height: 12px;
+      }
+    }
+    .accounts-order-data {
+      text-decoration: underline;
+      font-weight: bold; 
+    }
+    .accounts-order-data, .accounts-order-data-head {
+      padding-left: 20px;
+    }
+    @include tablet-up {
+      td {
+        font-size: 13px;
+      }
+    }
+  }
+  @include tablet-up {
+    padding: 60px 46px;
+    flex-direction: row;
+  }
+}
+
+.addresses-template {
+  h1, h2 {
+    text-align: left;
+  }
+  .input {
+    label {
+      display: inline-block;
+      font-family: $font-gotham;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    input:not(.vs__search):not([type="radio"]):not([type="checkbox"]),
+    select,
+    textarea,
+    .v-select {
+      height: 50px;
+      width: 100%;
+      border-radius: 4px;
+      border: 1px solid $border--main;
+      background-color: $bg--light;
+      color: $color-coal;
+      font-size: 13px;
+      line-height: 15px;
+      padding: 0 0 0 15px;
+      margin-bottom: 5px;
+
+      &:hover {
+        border: 1px solid $color--primary;
+      }
+
+      &:active {
+        border: 1px solid $color--primary--hover;
+      }
+
+      &:disabled {
+        border: 1px solid $color-dark-grey;
+        background-color: $color-dark-grey--lighter;
+        color: $color-black;
+      }
+    }
+
+    span:not(.vs__selected) {
+      color: $color-black;
+      font-size: rem(12);
+    }
+
+    .vs__search,
+    .vs__dropdown-toggle {
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      border: none;
+      background-color: transparent;
+    }
+
+    .vs__selected {
+      margin: 0;
+      padding: 0;
+      height: 50px;
+      line-height: 50px;
+    }
+
+    .vs__dropdown {
+
+      &-menu {
+        border: 1px solid $color--primary--hover;
+        width: calc(100% + 2px);
+        left: -1px;
+      }
+      
+      &-option {
+        height: 50px;
+        line-height: 50px;
+        font-size: rem(16);
+
+        &--highlight {
+          background-color: $color-dark-grey--lighter;
+          color: $color-black;
+        }
+      }
+    }
+
+    &--radio-group,
+    &--checkbox-group {
+      margin: 0;
+      padding: 0;
+
+      label {
+        display: inline-block;
+        position: relative;
+        line-height: 22px;
+        padding-left: 28px;
+        margin: 12px 0 0 12px;
+        font-family: $font-body--main;
+        font-size: rem(16);
+        font-weight: 400;
+        text-transform: none;
+        letter-spacing: normal;
+        color: $color-black;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        &:before {
+          display: none;
+        }
+
+        input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+        }
+
+        .radio-toggle,
+        .checkbox-toggle {
+          position: absolute;
+          top: 1px;
+          left: 0;
+          height: 16px;
+          width: 16px;
+        }
+      }
+    }
+
+    &--checkbox-group {
+      .checkbox-toggle {
+        border-radius: 1px;
+        border: 1px solid $color-dark-grey;
+        background-color: $color-white;
+      }
+
+      .checkbox-checkmark.icon {
+        display: none;
+        position: relative;
+        fill: $color-white;
+        left: 2px;
+        top: 2px;
+      }
+
+      label:hover input:not([disabled="disabled"]) ~ .checkbox-toggle {
+        border: 1px solid $color--primary--hover;
+      }
+
+      input:checked {
+        & ~ .checkbox-toggle {
+          border: 1px solid $color--primary;
+          background-color: $color--primary;
+        }
+        
+        & ~ .checkbox-toggle .checkbox-checkmark {
+          display: block;
+        }
+      }
+
+      input[disabled="disabled"] {
+        & ~ .checkbox-toggle {
+          border: 1px solid $color-dark-grey;
+          background-color: $color-dark-grey--lighter;
+        }
+        
+        & ~ .checkbox-toggle .checkbox-checkmark.icon {
+          fill: $color-dark-grey;
+        }
+      }
+    }
+
+    &--radio-group {
+      .radio-toggle {
+        background-color: $color-white;
+        border: 1px solid $color-dark-grey;
+        border-radius: 50%;
+
+        &::after {
+          content: "";
+          position: absolute;
+          display: none;
+          top: 3px;
+          left: 3px;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background-color: $color--primary;
+        }
+      }
+
+      label:hover input:not([disabled="disabled"]) ~ .radio-toggle {
+        border: 1px solid $color--primary--hover;
+      }
+
+      input:checked {
+        & ~ .radio-toggle {
+          border: 1px solid $color--primary;
+        }
+        
+        & ~ .radio-toggle::after {
+          display: block;
+        }
+      }
+
+      input[disabled="disabled"] {
+        & ~ .radio-toggle {
+          border: 1px solid $color-dark-grey;
+          background-color: $color-dark-grey--lighter;
+        }
+        
+        & ~ .radio-toggle::after {
+          background-color: $color-dark-grey;
+        }
+      }
+    }
+  }
+  
+  .edit-address-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    .default-group {
+      display: flex;
+      align-items: center;
+      .input {
+        margin: 0 0 30px;
+      }
+      label {
+        margin: 0;
+      }
+    }
+  }
+  .customer-address-form {
+    background: white;
+    padding: 24px 40px;
+    margin: 0 0 24px 0;
+    font-family: $font-gotham;
+    .input {
+      margin: 0 0 24px;
+    }
+    .input--checkbox-group {
+      label {
+        margin-left: 0;
+      }
+    }
+  }
+  .customer-address {
+    background: white;
+    padding: 24px 40px;
+    margin: 0 0 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    .address-card-menu {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      width: 144px;
+      border: 1px solid  #CCBA8720;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 200ms ease;
+      padding-top: 30px;
+      &.active {
+        opacity: 1;
+      }
+      button {
+        pointer-events: all;
+        padding: 15px;
+        background: $color-white;
+        width: 100%;
+        text-align: left;
+        border: none;
+      }
+      .edit {
+        border-bottom: 1px solid  #CCBA8720;
+      }
+    }
+  }
+  .edit-button, .delete-button {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: $color-pine;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  .edit-button {
+    font-size: 30px;
+  }
+  .customer-address-name, .customer-address-details {
+    margin: 0;
+  }
+  .address-name {
+    font-size: 16px;
+    line-height: 27px;
+    color: $color-dark-grey;
+    font-weight: 500;
+  }
+  .address-default {
+    font-size: 12px;
+    color: $color-pine;
+    font-weight: normal;
+    margin-left: 4px;
+  }
+  .customer-address-details {
+    font-family: $font-gotham;
+    font-size: 13px;
+    color: $color-dark-grey--lighter;
+    line-height: 27px;
+  }
+  .new-address-button {
+    font-family: $font-gotham;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 18px;
+    background: white;
+    cursor: pointer;
+    border: none;
+    color: $color-pine;
+    padding: 24px 0;
+    width: 100%;
+    svg {
+      fill: $color-pine;
+      margin-top: 2px;
+    }
+  }
+  .account-content-area {
+    padding: 18px 0;
+    margin-bottom: 80px;
+    @include tablet-up {
+      padding: 0;
+    }
+  }
+}
+
+.order-detail-template {
+  .order-detail-container {
+    background: white;
+    padding: 18px;
+    line-height: 24px;
+    font-family: $font-gotham;
+    @include tablet-up {
+      padding: 50px 48px;
+    }
+  }
+  .account-content-area {
+    margin: 0;
+    width: 100%;
+    .panel {
+      display: flex;
+      flex-direction: column;
+      .order-detail-header {
+        display: flex;
+        justify-content: space-between;
+        h2 {
+          width: 100%;
+          font-size: 16px;
+          display: inline-block;
+          padding: 0 0 10px 0;
+          margin: 0 0 10px 10px;
+          text-align: left;
+          @include tablet-up {
+            margin: 0 0 10px -20px;
+          }
+        }
+        .back-arrow {
+          width: 12px;
+          height: 12px;
+          transform: rotate(180deg);
+          margin-right: 5px;
+          margin-bottom: 3px;
+        }
+        .order-date {
+          display: block;
+          width: 100%;
+          font-family: Gotham;
+          font-size: 12px;
+          font-weight: 300;
+          line-height: 18px;
+          color: $color-dark-grey--lighter;
+          text-align: right;
+        }
+      }
+    }
+  } 
+  .order-detail-container {
+    .money {
+      font-family: $font-header--main;
+    }
+  }
+  .order-detail-cancellation-info, .order-addresses, .order-ship-pay-methods {
+    font-size: 13px;
+  }
+  .order-detail-cancellation-info {
+    p {
+      margin: 0 0 1em 0;
+    }
+  }
+  .order-details {
+    display: flex;
+    justify-content: space-between;
+    .detail {
+      width: 45%;
+    }
+    .track-shipment {
+      font-weight: 400;
+      text-decoration: underline;
+    }
+  }
+  .order-line-items {
+    margin: 0 0 40px 0;
+  }
+  .order-line-item-card {
+    padding: 30px 0 18px 0;
+    display: flex;
+    font-size: 11px;
+    line-height: 18px;
+    border-bottom: 1px solid  #CCBA8720;
+    a {
+      text-decoration: none;
+      color: $color-black;
+    }
+    img {
+      width: 127px;
+      align-self: center;
+      margin: 0 40px 0 0; 
+    }
+    table {
+      width: 100%;
+      td {
+        height: 18px;
+      }
+    }
+  }
+  .order-totals {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 12px;
+    table {
+      width: 70%;
+      border-collapse: collapse;
+      @include tablet-up {
+        width: 50%;
+      }
+    }
+    td {
+      height: 60px;
+    }
+    .order-total-title {
+      font-size: 12px;
+    }
+    .total {
+      border-top: 1px solid  #CCBA8720;
+    }
+    .subtotal {
+      font-size: 14px;
+      color: $color-pine;
+    }
+  }
+}

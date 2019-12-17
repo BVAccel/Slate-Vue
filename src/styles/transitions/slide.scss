@@ -1,0 +1,25 @@
+
+// slide-vertical
+// NOTE: max-height must be defined on the element for this to work
+.slide-vertical-enter-active, .slide-vertical-leave-active {
+  transition: .4s ease-in-out all;
+}
+
+.slide-vertical-enter, .slide-vertical-leave-active {
+  max-height: 0 !important; // min-height os often set via style tag, !important overrides that
+}
+
+.slideOut-enter-active, .slideOut-leave-active {
+  transition: transform .5s ease, opacity .5s ease-in-out;
+}
+.slideOut-enter, .slideOut-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateX(20px);
+}
+.slideIn-enter-active, .slideIn-leave-active {
+  transition: transform .5s ease, opacity .5s ease-in-out;
+}
+.slideIn-enter, .slideIn-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateX(-20px);
+}

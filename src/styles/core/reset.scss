@@ -1,0 +1,36 @@
+/**
+ * 1. Ensure the page always fills at least the entire height of the viewport.
+ * 2. https://css-tricks.com/snippets/css/momentum-scrolling-on-ios-overflow-elements/
+ */
+
+html {
+  min-height: 100%; /* [1] */
+  -webkit-overflow-scrolling: touch; /* [2] */
+  min-width: 320px;
+  background-color: $bg--main;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  main {
+    height: auto;
+  }
+}
+
+table {
+  width: 100%;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}

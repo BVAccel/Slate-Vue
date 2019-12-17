@@ -1,0 +1,58 @@
+.giftcard {
+  padding: 50px 24px 70px 24px;
+  text-align: center;
+
+  .button--primary {
+    min-width: 240px;
+  }
+
+  &__image {
+    width: 100%;
+    max-width: 640px;
+    margin: 25px auto;
+  }
+
+  h1 {
+    font-size: rem(40); 
+    font-weight: 500;
+    letter-spacing: -0.31px;  
+    line-height: 54px; 
+    text-align: center;
+    color: $text--main;
+    margin: 0;
+
+    @include desktop-up {
+      font-size: rem(65);
+      line-height: 85px;
+    }
+  }
+
+  h2 {
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: -0.1px;
+    line-height: 38px;
+    margin-bottom: 12px;
+
+    @include tablet-up {
+      font-size: 40px;
+      line-height: 55px;
+    }
+  }
+  p, &__code {
+    font-family: $font-gotham;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.2px;
+    line-height: 22px;
+
+    @include tablet-up {
+      font-size: 16px;
+      line-height: 26px;
+    }
+  }
+
+  p {
+    margin-bottom: 36px;
+  }
+}

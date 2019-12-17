@@ -1,0 +1,67 @@
+
+.featured-collection-section {
+  @include mobile-only {
+    overflow-x: hidden;
+  }
+}
+
+.featured-collection {
+  padding-bottom: $grid-gutter;
+
+  @include tablet-up {
+    padding-bottom: 100px;
+
+    [class*="template-product"] & {
+      padding-bottom: 72px;
+    }
+  }
+
+  &__slider {
+    margin-left: -$grid-gutter;
+    margin-right: -$grid-gutter;
+
+    @include tablet-up {
+      margin-left: -$grid-gutter / 2;
+      margin-right: -$grid-gutter / 2;
+    }
+  }
+}
+
+
+/**
+FEATURED COLLECTION UPSELL
+**/
+
+/* NOTE: Could refactor this, however did not want to
+change or mess up the above implimentatin of feature
+collection slider */
+
+.featured-collection-upsell{
+  display: grid;
+  display:-ms-grid;
+  grid-template-columns: auto 1920px auto;
+  -ms-grid-columns: auto 1920px auto;
+  padding-bottom: $grid-gutter;
+  @media screen and (max-width: 1919px){
+    grid-template-columns: auto 100% auto;
+    -ms-grid-columns: auto 100% auto;
+  }
+
+  @include tablet-up {
+    padding-bottom: 100px;
+
+    [class*="template-product"] & {
+      padding-bottom: 72px;
+    }
+  }
+
+  &-section {
+    @include mobile-only {
+      overflow-x: hidden;
+    }
+  }
+
+  &__slider {
+    max-width: 1920px;
+  }
+}

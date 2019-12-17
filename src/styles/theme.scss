@@ -1,16 +1,51 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 
-// Uncomment to include normalize.css
-// @import '~normalize.css/normalize';
+// vendor
+@import '~normalize.css/normalize';
+@import '~vue-select/src/scss/vue-select.scss';
 
-// Helpers
-@import 'helpers/index';
+// Settings
+@import './boilerplate';
 
-// Base
-@import 'base/index';
+// Core
+@import 'core/reset';
+@import 'core/fonts';
+@import 'core/forms';
+@import 'core/grid';
+@import 'core/layout';
+@import 'core/media';
+@import 'core/responsive-tables';
+@import 'core/typography';
+@import 'core/utility';
+@import 'core/z-index';
+
+// UI Components
+@import 'ui/buttons';
+@import 'ui/links';
+@import 'ui/featured-collection';
+@import 'ui/footer';
+@import 'ui/size-guide';
+@import 'ui/spinners';
+
+// Vue Transitions
+@import 'transitions/fade';
+@import 'transitions/off-canvas';
+@import 'transitions/slide';
+@import 'transitions/slide-fade';
 
 // Sections
-@import 'sections/index';
+@import 'sections/content-blocks';
+@import 'sections/product-icons';
 
-// Shame
-// @import 'base/shame';
+// Templates
+@import 'templates/404';
+@import 'templates/collection';
+@import 'static/templates/password';
+@import 'templates/customers';
+@import 'sections/product-reviews';
+@import 'templates/page';
+@import 'templates/page.our-purpose';
+@import 'templates/gift-card';
+
+// Vendor 
+@import 'vendor/klevu';
