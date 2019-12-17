@@ -1,17 +1,15 @@
-// import { storiesOf } from '@storybook/vue';
 import PrimaryButton from './PrimaryButton.vue';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import '../../../styles/theme.scss';
 
 export default {
   title: 'Buttons',
-  component: PrimaryButton,
   decorators: [withKnobs],
 };
 
 export const Primary = () => ({
-  components: { 'primary-button': PrimaryButton },
-  template: `<primary-button  :label="label" :icon="icon" :iconSize="iconSize" :hollow="hollow" :small="small" :full="full" :secondary="secondary" :simple="simple" :text="text" :flex="flex" :inline="inline" :disabled="disabled"></primary-button>`,
+  components: { PrimaryButton },
+  template: `<primary-button v-bind="$props"></primary-button>`,
   props: {
     label: {
       default: text('Text', 'Primary Button'),
@@ -51,7 +49,3 @@ export const Primary = () => ({
     },
   },
 });
-
-// storiesOf('Primary', module)
-//   .add('default', () => <PrimaryButton />)
-//   .add('other', () => <PrimaryButton initialState={{ someVar: 'otherVal' }} />);
